@@ -1,0 +1,196 @@
+{
+	"optionParserData": [
+		{
+			"name": "--channel",
+			"type": "string",
+			"var_name": "channel",
+			"help": "The ones whose variables implemented now are:\n   - 1l_2tau\n   - 2lss_1tau\n It will create a local folder and store the report*/xml",
+			"default": "T"
+		},
+		{
+			"name": "--variables",
+			"type": "string",
+			"var_name": "variables",
+			"help": "Set of variables to use -- it shall be put by hand in the code, in the fuction trainVars(all)\n Example to 2ssl_2tau   \n                              all==True -- all variables that should be loaded (training + weights) -- it is used only once\n                               all==False -- only variables of training (not including weights) \n  For the channels implemented I defined 3 sets of variables/each to confront at limit level\n  trainvar=allVar -- all variables that are avaible to training (including lepton IDs, this is here just out of curiosity) \n  trainvar=oldVar -- a minimal set of variables (excluding lepton IDs and lep pts)\n  trainvar=notForbidenVar -- a maximal set of variables (excluding lepton IDs and lep pts) \n  trainvar=notForbidenVarNoMEM -- the same as above, but excluding as well MeM variables",
+			"default": "T"
+		},
+		{
+			"name": "--bdtType",
+			"type": "string",
+			"var_name": "bdtType",
+			"help": "evtLevelTT_TTH or evtLevelTTV_TTH",
+			"default": "T"
+		},
+		{
+			"name": "--HypOpt",
+			"action": "store_true",
+			"var_name": "HypOpt",
+			"help": "If you call this will not do plots with repport",
+			"default": "False"
+		},
+		{
+			"name": "--doXML",
+			"action": "store_true",
+			"var_name": "doXML",
+			"help": "Do save not write the xml file",
+			"default": "False"
+		},
+		{
+			"name": "--doPlots",
+			"action": "store_true",
+			"var_name": "doPlots",
+			"help": "Fastsim Loose/Tight vs Fullsim variables plots",
+			"default": "False"
+		},
+		{
+			"name": "--oldNtuple",
+			"action": "store_true",
+			"var_name": "oldNtuple",
+			"help": "use Matthias",
+			"default": "False"
+		},
+		{
+			"name": "--ntrees",
+			"type": "int",
+			"var_name": "ntrees",
+			"help": "hyp",
+			"default": 2000
+		},
+		{
+			"name": "--treeDeph",
+			"type": "int",
+			"var_name": "treeDeph",
+			"help": "hyp",
+			"default": 2
+		},
+		{
+			"name": "--lr",
+			"type": "float",
+			"var_name": "lr",
+			"help": "hyp",
+			"default": 0.01
+		},
+		{
+			"name": "--mcw",
+			"type": "int",
+			"var_name": "mcw",
+			"help": "hyp",
+			"default": 1
+		}
+	],
+	"optionParserListChannel": ["2los_1tau"],
+	"optionParserListTrainVar": ["noHTT", "HTT"],
+	"optionParserDNNType": ["evtLevelTT_TTH", "evtLevelTTV_TTH"],
+	"file_locations_by_channel": [
+		{
+			"channel": "2los_1tau",
+			"channelInTree": "2los_1tau_forBDTtraining",
+			"inputPath": "/hdfs/local/mmaurya/ttHAnalysis/2017/2los_1tau_BDTtraining_Mtau_2Aug_2018/histograms/2los_1tau/forBDTtraining/",
+			"FastsimWP": "LooseLep_TightTau",
+			"criteria": "",
+			"testtruth": "bWj1Wj2_isGenMatchedWithKinFit",
+			"channelInTreeTight": "2los_1tau_forBDTtraining",
+			"inputPathTight": "/hdfs/local/mmaurya/ttHAnalysis/2017/2los_1tau_BDTtraining_Mtau_2Aug_2018/histograms/2los_1tau/forBDTtraining/",
+			"FastsimTWP": "TightLep_MediumTau",
+			"channelInTreeFS": "2los_1tau_Tight",
+			"inputPathTightFS": " /hdfs/local/mmaurya/ttHAnalysis/2017/2los_1tau_BDTtraining_Mtau_2Aug_2018/histograms/2los_1tau/forBDTtraining/",
+			"inputPathTightFS1": "/hdfs/local/acaan/ttHAnalysis/2016/2los_1tau_2018Mar14_BDT_fullsim_TLepVTTau/histograms/2los_1tau/Tight/",
+			"FullsimWP": "TightLep_VTightTau"
+		},
+		{
+			"None": "Add more paths if you want them to be available"
+		}
+	],
+	"inputVariableList": [
+		"HadTop_eta",
+		"HadTop_pt",
+		"avg_dr_jet",
+		"dr_lep1_tau_os",
+		"dr_lep2_tau_ss",
+		"dr_lepOS_HTfitted",
+		"dr_lepOS_HTunfitted",
+		"dr_lepSS_HTfitted",
+		"dr_lepSS_HTunfitted",
+		"dr_leps",
+		"dr_tau_HTfitted",
+		"dr_tau_HTunfitted",
+		"evtWeight",
+		"fitHTptoHTmass",
+		"fitHTptoHTpt",
+		"genTopPt",
+		"genWeight",
+		"htmiss",
+		"lep1_conePt",
+		"lep1_eta",
+		"lep1_fake_prob",
+		"lep1_genLepPt",
+		"lep1_pt",
+		"lep1_tth_mva",
+		"lep2_conePt",
+		"lep2_eta",
+		"lep2_fake_prob",
+		"lep2_genLepPt",
+		"lep2_pt",
+		"lep2_tth_mva",
+		"lumiScale",
+		"mT_lep1",
+		"mT_lep2",
+		"mTauTauVis",
+		"mass_lepOS_HTfitted",
+		"mass_lepSS_HTfitted",
+		"max_lep_eta",
+		"mbb",
+		"mbb_loose",
+		"b1_loose_pt",
+		"b2_loose_pt",
+		"drbb_loose",
+		"detabb_loose",
+		"min_lep_eta",
+		"mindr_lep1_jet",
+		"mindr_lep2_jet",
+		"mindr_tau_jet",
+		"mvaDiscr_2lss",
+		"mvaOutput_2lss_ttV",
+		"mvaOutput_2lss_ttbar",
+		"mvaOutput_hadTopTagger",
+		"mvaOutput_hadTopTaggerWithKinFit",
+		"ptbb",
+		"ptbb_loose",
+		"ptmiss",
+		"tau_eta",
+		"tau_fake_prob",
+		"tau_genTauPt",
+		"tau_mva",
+		"lep2_charge",
+		"lep2_isTight",
+		"tau_pt",
+		"unfittedHadTop_eta",
+		"unfittedHadTop_pt",
+		"bWj1Wj2_isGenMatched",
+		"bWj1Wj2_isGenMatchedWithKinFit",
+		"hadtruth",
+		"lep1_charge",
+		"lep1_isTight",
+		"lep1_tau_charge",
+		"nBJetLoose",
+		"nBJetMedium",
+		"nJet",
+		"nLep",
+		"nTau",
+		"tau_charge",
+		"tau_isTight",
+		"run",
+		"lumi",
+		"evt"
+	],
+	"trainVarListnoHTT": [
+		"tau_pt", 
+		"tau_eta", 
+		"avg_dr_jet"
+	],
+	"trainVarListHTT": [
+		"tau_pt", 
+		"tau_eta", 
+		"avg_dr_jet"
+	]
+}

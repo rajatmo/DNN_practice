@@ -1,1 +1,1 @@
-DNN_practice
+dummy-repo for testing features
