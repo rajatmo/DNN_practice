@@ -172,17 +172,17 @@ dataloader.AddSignalTree(signal, 1.0)
 dataloader.AddBackgroundTree(background1, 1.0)
 dataloader.AddBackgroundTree(background2, 1.0)
 dataloader.PrepareTrainingAndTestTree(TCut(''),
-                                      'nTrain_Signal=5000:nTrain_Background=5000:SplitMode=Random:NormMode=NumEvents:!V')
+                                      'nTrain_Signal=15000:nTrain_Background=5000:SplitMode=Random:NormMode=NumEvents:!V')
 
 # Generate model
 
 # Define model
 model = Sequential()
 model.add(Dense(50, activation='sigmoid', input_dim=14))
-model.add(Dense(50, activation='sigmoid'))
-model.add(Dense(50, activation='sigmoid'))
-#model.add(Dense(50, activation='sigmoid'))
-model.add(Dense(2, activation='relu'))
+model.add(Dense(50, activation='relu'))
+model.add(Dense(50, activation='relu'))
+model.add(Dense(50, activation='relu'))
+model.add(Dense(2, activation='softmax'))
 
 
 # Set loss and optimizer
@@ -197,17 +197,12 @@ model.summary()
 #factory.BookMethod(dataloader, TMVA.Types.kFisher, 'Fisher',
 #                   '!H:!V:Fisher:VarTransform=D,G')
 factory.BookMethod(dataloader, TMVA.Types.kPyKeras, 'PyKeras',
-                   '!H:!V:FilenameModel=model.h5:NumEpochs=1000:BatchSize=500')
+                   '!H:!V:FilenameModel=model.h5:NumEpochs=100')
 
 # Run training, test and evaluation
 factory.TrainAllMethods()
 factory.TestAllMethods()
 factory.EvaluateAllMethods()
-
-
-
-
-
 
 
 
