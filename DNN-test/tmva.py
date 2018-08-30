@@ -13,7 +13,7 @@ from ROOT.Math import PtEtaPhiEVector,VectorUtil
 import math , array 
 import random
 
-
+import glob
 from ROOT import TMVA, TFile, TTree, TCut
 from subprocess import call
 from os.path import isfile
@@ -35,13 +35,6 @@ factory = TMVA.Factory('TMVAClassification', output,
 if not isfile('tmva_class_example.root'):
     call(['curl', '-O', 'http://root.cern.ch/files/tmva_class_example.root'])
 '''
-data = TFile.Open('/home/rajat/github/DNN_practice/root/forBDTtraining/ttHJetToNonbb_M125_amcatnlo/ttHJetToNonbb_M125_amcatnlo_forBDTtraining_central_1.root')
-signal = data.Get('/2los_1tau_Tight/sel/evtntuple/signal/evtTree')
-data1 =  TFile.Open('~/github/DNN_practice/root/forBDTtraining/'+'TTWJetsToLNu_ext1/TTWJetsToLNu_ext1_forBDTtraining_central_1.root')
-background = data1.Get('/2los_1tau_Tight/sel/evtntuple/TTW/evtTree')
-
-
-
 
 
 varlist=[
@@ -68,13 +61,13 @@ varlist=[
 			# 'lep1_fake_prob', 
 			# 'lep1_genLepPt',
 			#'lep1_pt', 
-			# 'lep1_tth_mva', 
+			'lep1_tth_mva', 
 			# 'lep2_conePt', 
 			# 'lep2_eta', 
 			#'lep2_fake_prob', 
 			# 'lep2_genLepPt',
 			#'lep2_pt', 
-			# 'lep2_tth_mva', #
+			'lep2_tth_mva', #
 			# 'lumiScale',
 			#'mT_lep1', 
 			'mT_lep2', 
@@ -128,6 +121,45 @@ varlist=[
 		]
 
 
+bdtType="evtLevelTT_TTH"
+channelInTree="2los_1tau_Tight"
+
+
+
+if bdtType=="evtLevelTT_TTH" : 
+    keys=[
+            'ttHJetToNonbb',
+            'TTGJets',
+            'TTJets_DiLept',
+            'TTJets_SingleLeptFromT',
+            'TTJets_SingleLeptFromTbar',
+
+            ]
+    
+if bdtType=="evtLevelTTV_TTH" : 
+    keys=[
+            'TTWJetsToLNu_ext1',
+            'TTWJetsToLNu_ext2',
+            'TTWW',
+            
+            
+            ]
+    
+inputPath= '/home/rajat/github/DNN_practice/root/forBDTtraining'
+
+
+
+data = TFile.Open('/home/rajat/github/DNN_practice/root/forBDTtraining/ttHJetToNonbb_M125_amcatnlo/ttHJetToNonbb_M125_amcatnlo_forBDTtraining_central_1.root')
+signal = data.Get('/2los_1tau_Tight/sel/evtntuple/signal/evtTree')
+
+
+
+data1 =  TFile.Open('/home/rajat/github/DNN_practice/root/forBDTtraining/ttHJetTobb_M125/ttHJetTobb_M125_forBDTtraining_central_1.root')
+background1 = data1.Get('/2los_1tau_Tight/sel/evtntuple/ttH_hbb/evtTree')
+
+data2 =  TFile.Open('/home/rajat/github/DNN_practice/root/forBDTtraining/TTJets_DiLept/TTJets_DiLept_forBDTtraining_central_1.root')
+background2 = data2.Get('/2los_1tau_Tight/sel/evtntuple/TT/evtTree')
+
 
 
 dataloader = TMVA.DataLoader('dataset')
@@ -137,24 +169,25 @@ for branch in signal.GetListOfBranches():
             dataloader.AddVariable(branch.GetName())
 
 dataloader.AddSignalTree(signal, 1.0)
-dataloader.AddBackgroundTree(background, 1.0)
+dataloader.AddBackgroundTree(background1, 1.0)
+dataloader.AddBackgroundTree(background2, 1.0)
 dataloader.PrepareTrainingAndTestTree(TCut(''),
-                                      'nTrain_Signal=20000:nTrain_Background=3000:SplitMode=Random:NormMode=NumEvents:!V')
+                                      'nTrain_Signal=5000:nTrain_Background=5000:SplitMode=Random:NormMode=NumEvents:!V')
 
 # Generate model
 
 # Define model
 model = Sequential()
-model.add(Dense(50, activation='relu', input_dim=12))
-model.add(Dense(50, activation='relu'))
-model.add(Dense(50, activation='relu'))
-model.add(Dense(50, activation='relu'))
-model.add(Dense(2, activation='softmax'))
+model.add(Dense(50, activation='sigmoid', input_dim=14))
+model.add(Dense(50, activation='sigmoid'))
+model.add(Dense(50, activation='sigmoid'))
+#model.add(Dense(50, activation='sigmoid'))
+model.add(Dense(2, activation='relu'))
 
 
 # Set loss and optimizer
 model.compile(loss='categorical_crossentropy',
-              optimizer=SGD(lr=0.01), metrics=['accuracy', ])
+              optimizer=SGD(lr=0.03), metrics=['accuracy', ])
 
 # Store model to file
 model.save('model.h5')
@@ -164,7 +197,7 @@ model.summary()
 #factory.BookMethod(dataloader, TMVA.Types.kFisher, 'Fisher',
 #                   '!H:!V:Fisher:VarTransform=D,G')
 factory.BookMethod(dataloader, TMVA.Types.kPyKeras, 'PyKeras',
-                   '!H:!V:FilenameModel=model.h5:NumEpochs=100:BatchSize=200')
+                   '!H:!V:FilenameModel=model.h5:NumEpochs=1000:BatchSize=500')
 
 # Run training, test and evaluation
 factory.TrainAllMethods()
