@@ -10,10 +10,10 @@ Method         : PyKeras::PyKeras
 TMVA Release   : 4.2.1         [262657]
 ROOT Release   : 6.15/01       [397057]
 Creator        : rajat
-Date           : Fri Aug 31 01:55:36 2018
+Date           : Fri Aug 31 16:34:56 2018
 Host           : Linux ehep-TIFR 4.15.0-33-generic #36-Ubuntu SMP Wed Aug 15 16:00:05 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
 Dir            : /home/rajat/github/DNN_practice/DNN-test
-Training events: 20000
+Training events: 6000
 Analysis type  : [Classification]
 
 
@@ -42,21 +42,26 @@ TensorBoard: "" [Write a log during training to visualize and monitor the traini
 
 #VAR -*-*-*-*-*-*-*-*-*-*-*-* variables *-*-*-*-*-*-*-*-*-*-*-*-
 
-NVar 14
-avg_dr_jet                    avg_dr_jet                    avg_dr_jet                    avg_dr_jet                                                      'F'    [0.63833039999,4.03213119507]
-dr_lep2_tau_ss                dr_lep2_tau_ss                dr_lep2_tau_ss                dr_lep2_tau_ss                                                  'F'    [0.300122857094,5.21314048767]
-lep1_tth_mva                  lep1_tth_mva                  lep1_tth_mva                  lep1_tth_mva                                                    'F'    [0.750177383423,0.99654597044]
-lep2_tth_mva                  lep2_tth_mva                  lep2_tth_mva                  lep2_tth_mva                                                    'F'    [0.75001513958,0.996215224266]
-mT_lep2                       mT_lep2                       mT_lep2                       mT_lep2                                                         'F'    [0,495.318237305]
-mTauTauVis                    mTauTauVis                    mTauTauVis                    mTauTauVis                                                      'F'    [6.79899024963,832.360839844]
-mbb_loose                     mbb_loose                     mbb_loose                     mbb_loose                                                       'F'    [-1,2173.96923828]
-mindr_lep1_jet                mindr_lep1_jet                mindr_lep1_jet                mindr_lep1_jet                                                  'F'    [0.400219202042,3.70439887047]
-mindr_lep2_jet                mindr_lep2_jet                mindr_lep2_jet                mindr_lep2_jet                                                  'F'    [0.400366961956,3.60308861732]
-mindr_tau_jet                 mindr_tau_jet                 mindr_tau_jet                 mindr_tau_jet                                                   'F'    [0.400059759617,3.91682362556]
-ptmiss                        ptmiss                        ptmiss                        ptmiss                                                          'F'    [0.459172993898,707.354797363]
-tau_eta                       tau_eta                       tau_eta                       tau_eta                                                         'F'    [-2.29905700684,2.29886484146]
-tau_pt                        tau_pt                        tau_pt                        tau_pt                                                          'F'    [20.0003414154,579.594238281]
-nJet                          nJet                          nJet                          nJet                                                            'F'    [3,13]
+NVar 19
+avg_dr_jet                    avg_dr_jet                    avg_dr_jet                    avg_dr_jet                                                      'F'    [0.653567194939,3.90449261665]
+dr_lep1_tau_os                dr_lep1_tau_os                dr_lep1_tau_os                dr_lep1_tau_os                                                  'F'    [0.302364349365,5.19683647156]
+dr_lep2_tau_ss                dr_lep2_tau_ss                dr_lep2_tau_ss                dr_lep2_tau_ss                                                  'F'    [0.328303575516,5.16926717758]
+dr_lepOS_HTfitted             dr_lepOS_HTfitted             dr_lepOS_HTfitted             dr_lepOS_HTfitted                                               'F'    [0.0550939030945,5.94222164154]
+dr_lepOS_HTunfitted           dr_lepOS_HTunfitted           dr_lepOS_HTunfitted           dr_lepOS_HTunfitted                                             'F'    [0.042950425297,7.37939119339]
+dr_leps                       dr_leps                       dr_leps                       dr_leps                                                         'F'    [0.185184195638,5.0051779747]
+mT_lep1                       mT_lep1                       mT_lep1                       mT_lep1                                                         'F'    [0.15112401545,836.125854492]
+mT_lep2                       mT_lep2                       mT_lep2                       mT_lep2                                                         'F'    [0.0637602731586,495.318237305]
+mTauTauVis                    mTauTauVis                    mTauTauVis                    mTauTauVis                                                      'F'    [7.11233472824,747.59588623]
+max_lep_eta                   max_lep_eta                   max_lep_eta                   max_lep_eta                                                     'F'    [-2.15095210075,2.49279785156]
+mbb_loose                     mbb_loose                     mbb_loose                     mbb_loose                                                       'F'    [-1,1359.20983887]
+mindr_lep1_jet                mindr_lep1_jet                mindr_lep1_jet                mindr_lep1_jet                                                  'F'    [0.400680065155,3.47646021843]
+mindr_lep2_jet                mindr_lep2_jet                mindr_lep2_jet                mindr_lep2_jet                                                  'F'    [0.401944369078,3.50549244881]
+mindr_tau_jet                 mindr_tau_jet                 mindr_tau_jet                 mindr_tau_jet                                                   'F'    [0.400019168854,3.78896164894]
+mvaOutput_hadTopTagger        mvaOutput_hadTopTagger        mvaOutput_hadTopTagger        mvaOutput_hadTopTagger                                          'F'    [0.00679748365656,0.991048812866]
+ptmiss                        ptmiss                        ptmiss                        ptmiss                                                          'F'    [1.24473965168,596.937133789]
+tau_eta                       tau_eta                       tau_eta                       tau_eta                                                         'F'    [-2.29689788818,2.29855370522]
+tau_pt                        tau_pt                        tau_pt                        tau_pt                                                          'F'    [20.0065460205,388.60256958]
+nJet                          nJet                          nJet                          nJet                                                            'F'    [3,12]
 NSpec 0
 
 
@@ -100,10 +105,10 @@ class ReadPyKeras : public IClassifierReader {
    ReadPyKeras( std::vector<std::string>& theInputVars )
       : IClassifierReader(),
         fClassName( "ReadPyKeras" ),
-        fNvars( 14 )
+        fNvars( 19 )
    {
       // the training input variables
-      const char* inputVars[] = { "avg_dr_jet", "dr_lep2_tau_ss", "lep1_tth_mva", "lep2_tth_mva", "mT_lep2", "mTauTauVis", "mbb_loose", "mindr_lep1_jet", "mindr_lep2_jet", "mindr_tau_jet", "ptmiss", "tau_eta", "tau_pt", "nJet" };
+      const char* inputVars[] = { "avg_dr_jet", "dr_lep1_tau_os", "dr_lep2_tau_ss", "dr_lepOS_HTfitted", "dr_lepOS_HTunfitted", "dr_leps", "mT_lep1", "mT_lep2", "mTauTauVis", "max_lep_eta", "mbb_loose", "mindr_lep1_jet", "mindr_lep2_jet", "mindr_tau_jet", "mvaOutput_hadTopTagger", "ptmiss", "tau_eta", "tau_pt", "nJet" };
 
       // sanity checks
       if (theInputVars.size() <= 0) {
@@ -155,6 +160,16 @@ class ReadPyKeras : public IClassifierReader {
       fVmax[12] = 0;
       fVmin[13] = 0;
       fVmax[13] = 0;
+      fVmin[14] = 0;
+      fVmax[14] = 0;
+      fVmin[15] = 0;
+      fVmax[15] = 0;
+      fVmin[16] = 0;
+      fVmax[16] = 0;
+      fVmin[17] = 0;
+      fVmax[17] = 0;
+      fVmin[18] = 0;
+      fVmax[18] = 0;
 
       // initialize input variable types
       fType[0] = 'F';
@@ -171,6 +186,11 @@ class ReadPyKeras : public IClassifierReader {
       fType[11] = 'F';
       fType[12] = 'F';
       fType[13] = 'F';
+      fType[14] = 'F';
+      fType[15] = 'F';
+      fType[16] = 'F';
+      fType[17] = 'F';
+      fType[18] = 'F';
 
       // initialize constants
       Initialize();
@@ -200,15 +220,15 @@ class ReadPyKeras : public IClassifierReader {
    char   GetType( int ivar ) const { return fType[ivar]; }
 
    // normalisation of input variables
-   double fVmin[14];
-   double fVmax[14];
+   double fVmin[19];
+   double fVmax[19];
    double NormVariable( double x, double xmin, double xmax ) const {
       // normalise to output range: [-1, 1]
       return 2*(x - xmin)/(xmax - xmin) - 1.0;
    }
 
    // type of input variable: 'F' or 'I'
-   char   fType[14];
+   char   fType[19];
 
    // initialize internal variables
    void Initialize();

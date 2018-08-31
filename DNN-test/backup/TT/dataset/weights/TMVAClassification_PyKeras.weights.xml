@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<MethodSetup Method="PyKeras::PyKeras">
+  <GeneralInfo>
+    <Info name="TMVA Release" value="4.2.1 [262657]"/>
+    <Info name="ROOT Release" value="6.15/01 [397057]"/>
+    <Info name="Creator" value="rajat"/>
+    <Info name="Date" value="Fri Aug 31 02:37:14 2018"/>
+    <Info name="Host" value="Linux ehep-TIFR 4.15.0-33-generic #36-Ubuntu SMP Wed Aug 15 16:00:05 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux"/>
+    <Info name="Dir" value="/home/rajat/github/DNN_practice/DNN-test"/>
+    <Info name="Training events" value="20000"/>
+    <Info name="TrainingTime" value="2.42381999e+01"/>
+    <Info name="AnalysisType" value="Classification"/>
+  </GeneralInfo>
+  <Options>
+    <Option name="V" modified="Yes">False</Option>
+    <Option name="VerbosityLevel" modified="No">Default</Option>
+    <Option name="VarTransform" modified="No">None</Option>
+    <Option name="H" modified="Yes">False</Option>
+    <Option name="CreateMVAPdfs" modified="No">False</Option>
+    <Option name="IgnoreNegWeightsInTraining" modified="No">False</Option>
+    <Option name="FilenameModel" modified="Yes">model.h5</Option>
+    <Option name="FilenameTrainedModel" modified="No">dataset/weights/TrainedModel_PyKeras.h5</Option>
+    <Option name="BatchSize" modified="No">100</Option>
+    <Option name="NumEpochs" modified="Yes">100</Option>
+    <Option name="Verbose" modified="No">1</Option>
+    <Option name="ContinueTraining" modified="No">False</Option>
+    <Option name="SaveBestOnly" modified="No">True</Option>
+    <Option name="TriesEarlyStopping" modified="No">-1</Option>
+    <Option name="LearningRateSchedule" modified="No"/>
+    <Option name="TensorBoard" modified="No"/>
+  </Options>
+  <Variables NVar="14">
+    <Variable VarIndex="0" Expression="avg_dr_jet" Label="avg_dr_jet" Title="avg_dr_jet" Unit="" Internal="avg_dr_jet" Type="F" Min="6.38330400e-01" Max="4.03213120e+00"/>
+    <Variable VarIndex="1" Expression="dr_lep2_tau_ss" Label="dr_lep2_tau_ss" Title="dr_lep2_tau_ss" Unit="" Internal="dr_lep2_tau_ss" Type="F" Min="3.00122857e-01" Max="5.18887711e+00"/>
+    <Variable VarIndex="2" Expression="lep1_tth_mva" Label="lep1_tth_mva" Title="lep1_tth_mva" Unit="" Internal="lep1_tth_mva" Type="F" Min="7.50177383e-01" Max="9.96545970e-01"/>
+    <Variable VarIndex="3" Expression="lep2_tth_mva" Label="lep2_tth_mva" Title="lep2_tth_mva" Unit="" Internal="lep2_tth_mva" Type="F" Min="7.50015140e-01" Max="9.96215224e-01"/>
+    <Variable VarIndex="4" Expression="mT_lep2" Label="mT_lep2" Title="mT_lep2" Unit="" Internal="mT_lep2" Type="F" Min="0.00000000e+00" Max="4.95318237e+02"/>
+    <Variable VarIndex="5" Expression="mTauTauVis" Label="mTauTauVis" Title="mTauTauVis" Unit="" Internal="mTauTauVis" Type="F" Min="6.79899025e+00" Max="8.30754456e+02"/>
+    <Variable VarIndex="6" Expression="mbb_loose" Label="mbb_loose" Title="mbb_loose" Unit="" Internal="mbb_loose" Type="F" Min="-1.00000000e+00" Max="2.17396924e+03"/>
+    <Variable VarIndex="7" Expression="mindr_lep1_jet" Label="mindr_lep1_jet" Title="mindr_lep1_jet" Unit="" Internal="mindr_lep1_jet" Type="F" Min="4.00219202e-01" Max="3.70439887e+00"/>
+    <Variable VarIndex="8" Expression="mindr_lep2_jet" Label="mindr_lep2_jet" Title="mindr_lep2_jet" Unit="" Internal="mindr_lep2_jet" Type="F" Min="4.00366962e-01" Max="3.60308862e+00"/>
+    <Variable VarIndex="9" Expression="mindr_tau_jet" Label="mindr_tau_jet" Title="mindr_tau_jet" Unit="" Internal="mindr_tau_jet" Type="F" Min="4.00019169e-01" Max="3.91682363e+00"/>
+    <Variable VarIndex="10" Expression="ptmiss" Label="ptmiss" Title="ptmiss" Unit="" Internal="ptmiss" Type="F" Min="1.24473965e+00" Max="7.07354797e+02"/>
+    <Variable VarIndex="11" Expression="tau_eta" Label="tau_eta" Title="tau_eta" Unit="" Internal="tau_eta" Type="F" Min="-2.29905701e+00" Max="2.29886484e+00"/>
+    <Variable VarIndex="12" Expression="tau_pt" Label="tau_pt" Title="tau_pt" Unit="" Internal="tau_pt" Type="F" Min="2.00003414e+01" Max="5.79594238e+02"/>
+    <Variable VarIndex="13" Expression="nJet" Label="nJet" Title="nJet" Unit="" Internal="nJet" Type="F" Min="3.00000000e+00" Max="1.30000000e+01"/>
+  </Variables>
+  <Spectators NSpec="0"/>
+  <Classes NClass="2">
+    <Class Name="Signal" Index="0"/>
+    <Class Name="Background" Index="1"/>
+  </Classes>
+  <Transformations NTransformations="0"/>
+  <MVAPdfs/>
+</MethodSetup>
