@@ -4,11 +4,11 @@
     <Info name="TMVA Release" value="4.2.1 [262657]"/>
     <Info name="ROOT Release" value="6.15/01 [397057]"/>
     <Info name="Creator" value="rajat"/>
-    <Info name="Date" value="Fri Aug 31 16:34:56 2018"/>
-    <Info name="Host" value="Linux ehep-TIFR 4.15.0-33-generic #36-Ubuntu SMP Wed Aug 15 16:00:05 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux"/>
-    <Info name="Dir" value="/home/rajat/github/DNN_practice/DNN-test"/>
+    <Info name="Date" value="Thu Sep  6 18:37:39 2018"/>
+    <Info name="Host" value="Linux DESKTOP-HIGLJN9 4.4.0-17134-Microsoft #137-Microsoft Thu Jun 14 18:46:00 PST 2018 x86_64 x86_64 x86_64 GNU/Linux"/>
+    <Info name="Dir" value="/mnt/c/Users/rajat/OneDrive/Documents/GitHub/DNN_practice/DNN-test"/>
     <Info name="Training events" value="6000"/>
-    <Info name="TrainingTime" value="3.17126038e+01"/>
+    <Info name="TrainingTime" value="8.44044805e+00"/>
     <Info name="AnalysisType" value="Classification"/>
   </GeneralInfo>
   <Options>
@@ -21,7 +21,7 @@
     <Option name="FilenameModel" modified="Yes">model.h5</Option>
     <Option name="FilenameTrainedModel" modified="No">dataset/weights/TrainedModel_PyKeras.h5</Option>
     <Option name="BatchSize" modified="No">100</Option>
-    <Option name="NumEpochs" modified="Yes">100</Option>
+    <Option name="NumEpochs" modified="Yes">50</Option>
     <Option name="Verbose" modified="No">1</Option>
     <Option name="ContinueTraining" modified="No">False</Option>
     <Option name="SaveBestOnly" modified="No">True</Option>

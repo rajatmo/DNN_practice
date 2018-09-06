@@ -10,9 +10,9 @@ Method         : PyKeras::PyKeras
 TMVA Release   : 4.2.1         [262657]
 ROOT Release   : 6.15/01       [397057]
 Creator        : rajat
-Date           : Fri Aug 31 16:34:56 2018
-Host           : Linux ehep-TIFR 4.15.0-33-generic #36-Ubuntu SMP Wed Aug 15 16:00:05 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
-Dir            : /home/rajat/github/DNN_practice/DNN-test
+Date           : Thu Sep  6 18:37:39 2018
+Host           : Linux DESKTOP-HIGLJN9 4.4.0-17134-Microsoft #137-Microsoft Thu Jun 14 18:46:00 PST 2018 x86_64 x86_64 x86_64 GNU/Linux
+Dir            : /mnt/c/Users/rajat/OneDrive/Documents/GitHub/DNN_practice/DNN-test
 Training events: 6000
 Analysis type  : [Classification]
 
@@ -23,7 +23,7 @@ Analysis type  : [Classification]
 V: "False" [Verbose output (short form of "VerbosityLevel" below - overrides the latter one)]
 H: "False" [Print method-specific help message]
 FilenameModel: "model.h5" [Filename of the initial Keras model]
-NumEpochs: "100" [Number of training epochs]
+NumEpochs: "50" [Number of training epochs]
 # Default:
 VerbosityLevel: "Default" [Verbosity level]
 VarTransform: "None" [List of variable transformations performed before training, e.g., "D_Background,P_Signal,G,N_AllClasses" for: "Decorrelation, PCA-transformation, Gaussianisation, Normalisation, each for the given class of events ('AllClasses' denotes all events of all classes, if no class indication is given, 'All' is assumed)"]
