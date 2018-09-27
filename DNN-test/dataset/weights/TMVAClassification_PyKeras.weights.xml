@@ -4,11 +4,11 @@
     <Info name="TMVA Release" value="4.2.1 [262657]"/>
     <Info name="ROOT Release" value="6.15/01 [397057]"/>
     <Info name="Creator" value="rajat"/>
-    <Info name="Date" value="Thu Sep  6 18:37:39 2018"/>
-    <Info name="Host" value="Linux DESKTOP-HIGLJN9 4.4.0-17134-Microsoft #137-Microsoft Thu Jun 14 18:46:00 PST 2018 x86_64 x86_64 x86_64 GNU/Linux"/>
-    <Info name="Dir" value="/mnt/c/Users/rajat/OneDrive/Documents/GitHub/DNN_practice/DNN-test"/>
+    <Info name="Date" value="Thu Sep 27 12:38:59 2018"/>
+    <Info name="Host" value="Linux DESKTOP-HIGLJN9 4.4.0-17134-Microsoft #285-Microsoft Thu Aug 30 17:31:00 PST 2018 x86_64 x86_64 x86_64 GNU/Linux"/>
+    <Info name="Dir" value="/mnt/c/ubuntu/github/DNN_practice/DNN-test"/>
     <Info name="Training events" value="6000"/>
-    <Info name="TrainingTime" value="8.44044805e+00"/>
+    <Info name="TrainingTime" value="6.79995918e+00"/>
     <Info name="AnalysisType" value="Classification"/>
   </GeneralInfo>
   <Options>

@@ -10,9 +10,9 @@ Method         : PyKeras::PyKeras
 TMVA Release   : 4.2.1         [262657]
 ROOT Release   : 6.15/01       [397057]
 Creator        : rajat
-Date           : Thu Sep  6 18:37:39 2018
-Host           : Linux DESKTOP-HIGLJN9 4.4.0-17134-Microsoft #137-Microsoft Thu Jun 14 18:46:00 PST 2018 x86_64 x86_64 x86_64 GNU/Linux
-Dir            : /mnt/c/Users/rajat/OneDrive/Documents/GitHub/DNN_practice/DNN-test
+Date           : Thu Sep 27 12:38:59 2018
+Host           : Linux DESKTOP-HIGLJN9 4.4.0-17134-Microsoft #285-Microsoft Thu Aug 30 17:31:00 PST 2018 x86_64 x86_64 x86_64 GNU/Linux
+Dir            : /mnt/c/ubuntu/github/DNN_practice/DNN-test
 Training events: 6000
 Analysis type  : [Classification]
 
