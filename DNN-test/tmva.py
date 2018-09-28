@@ -31,27 +31,111 @@ from keras.optimizers import SGD
 
 forBDTtraining="forBDTtraining"
 
-TTNames=['TT']
 
+channel='2los_1tau_Tight'
 
-
+varlist=[
+	# (medium b)
+	#'htmiss',
+	#'lep2_eta',
+	#'mbb', 
+	#'nBJetMedium',
+	#'ptbb_loose',
+	'avg_dr_jet', 
+	'b1_loose_pt', 
+	'b2_loose_pt', 
+	'detabb_loose',
+	'dr_lep1_tau_os',
+	'dr_lep2_tau_ss',
+	'dr_leps',
+	'drbb_loose', 
+	'lep1_conePt',
+	'lep1_eta',
+	'lep2_conePt',
+	'max_lep_eta', 
+	'mbb_loose', 
+	'min_lep_eta', 
+	'mindr_lep1_jet', 
+	'mindr_lep2_jet', 
+	'mindr_tau_jet',
+	'mT_lep1',
+	'mT_lep2',
+	'mTauTauVis',
+	'nBJetLoose',
+	'nJet',
+	'ptbb', 
+	'ptmiss', 
+	'tau_eta',
+	'tau_pt', 
+]
 
 
 
 
 rootfilepath = "../root/forBDTtraining/*/*.root"
 
+
+dataloader = TMVA.DataLoader('dataset')
+
+
+
 list = glob.glob(rootfilepath)
+
+cats=['signal','ttH_hbb','TTW','TTZ','Rares','EWK']
+
+myEvents={'signal':[],'ttH_hbb':[],'TTW':[],'TTZ':[],'Rares':[],'EWK':[]}
 
 for i in range(0, len(list)):
 	print "opening"+ list[i]
 	rootfile = TFile.Open(list[i])
-	
+	for j in myEvents.keys():
+		print channel+"/sel/evtntuple/"+j+"/evtTree loading"
+		evt_tree=rootfile.Get("/"+channel+"/sel/evtntuple/"+j+"/evtTree")
+		for branch in evt_tree.GetListOfBranches(): 
+			for selection in varlist:
+				if (selection == branch.GetName()):
+					dataloader.AddVariable(branch.GetName())
+		if evt_tree is not None:
+			print type(dict[j])
+			dict[j].append(evt_tree)
+			print j+' is loaded'
+					
+
+
+
 	rootfile.Close()
 
+#dataloader.AddSignalTree(myDict[1], 1.0)
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
+dataloader = TMVA.DataLoader('dataset')
+for branch in signal.GetListOfBranches():
+    for selection in varlist:
+        if (selection == branch.GetName()):
+            dataloader.AddVariable(branch.GetName())
+
+dataloader.AddSignalTree(signal, 1.0)
+
+
+'''
 
 
 
