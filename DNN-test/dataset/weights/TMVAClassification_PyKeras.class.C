@@ -10,10 +10,10 @@ Method         : PyKeras::PyKeras
 TMVA Release   : 4.2.1         [262657]
 ROOT Release   : 6.15/01       [397057]
 Creator        : rajat
-Date           : Sat Sep 29 18:56:59 2018
+Date           : Sat Sep 29 22:25:26 2018
 Host           : Linux DESKTOP-HIGLJN9 4.4.0-17134-Microsoft #285-Microsoft Thu Aug 30 17:31:00 PST 2018 x86_64 x86_64 x86_64 GNU/Linux
 Dir            : /mnt/c/ubuntu/github/DNN_practice/DNN-test
-Training events: 14617
+Training events: 32000
 Analysis type  : [Classification]
 
 
@@ -23,7 +23,7 @@ Analysis type  : [Classification]
 V: "False" [Verbose output (short form of "VerbosityLevel" below - overrides the latter one)]
 H: "False" [Print method-specific help message]
 FilenameModel: "model.h5" [Filename of the initial Keras model]
-NumEpochs: "50" [Number of training epochs]
+NumEpochs: "100" [Number of training epochs]
 # Default:
 VerbosityLevel: "Default" [Verbosity level]
 VarTransform: "None" [List of variable transformations performed before training, e.g., "D_Background,P_Signal,G,N_AllClasses" for: "Decorrelation, PCA-transformation, Gaussianisation, Normalisation, each for the given class of events ('AllClasses' denotes all events of all classes, if no class indication is given, 'All' is assumed)"]
@@ -42,29 +42,24 @@ TensorBoard: "" [Write a log during training to visualize and monitor the traini
 
 #VAR -*-*-*-*-*-*-*-*-*-*-*-* variables *-*-*-*-*-*-*-*-*-*-*-*-
 
-NVar 22
-avg_dr_jet                    avg_dr_jet                    avg_dr_jet                    avg_dr_jet                                                      'F'    [0.554938673973,4.03213119507]
-dr_lep1_tau_os                dr_lep1_tau_os                dr_lep1_tau_os                dr_lep1_tau_os                                                  'F'    [0.300703018904,5.31354618073]
-dr_lep2_tau_ss                dr_lep2_tau_ss                dr_lep2_tau_ss                dr_lep2_tau_ss                                                  'F'    [0.300122857094,5.18887710571]
+NVar 17
+avg_dr_jet                    avg_dr_jet                    avg_dr_jet                    avg_dr_jet                                                      'F'    [0.523737072945,4.26395082474]
+dr_lep2_tau_ss                dr_lep2_tau_ss                dr_lep2_tau_ss                dr_lep2_tau_ss                                                  'F'    [0.300122857094,5.54554986954]
 dr_leps                       dr_leps                       dr_leps                       dr_leps                                                         'F'    [0.0667156279087,5.04116916656]
-lep1_conePt                   lep1_conePt                   lep1_conePt                   lep1_conePt                                                     'F'    [25.0012931824,583.501953125]
-lep1_eta                      lep1_eta                      lep1_eta                      lep1_eta                                                        'F'    [-2.44179224968,2.43358445168]
-lep2_conePt                   lep2_conePt                   lep2_conePt                   lep2_conePt                                                     'F'    [10.0270252228,311.621795654]
-mT_lep1                       mT_lep1                       mT_lep1                       mT_lep1                                                         'F'    [0.0454919971526,1071.87451172]
-mT_lep2                       mT_lep2                       mT_lep2                       mT_lep2                                                         'F'    [0,495.318237305]
-mTauTauVis                    mTauTauVis                    mTauTauVis                    mTauTauVis                                                      'F'    [6.79899024963,1714.05517578]
-max_lep_eta                   max_lep_eta                   max_lep_eta                   max_lep_eta                                                     'F'    [-2.3497159481,2.49275779724]
-mbb_loose                     mbb_loose                     mbb_loose                     mbb_loose                                                       'F'    [-1,2173.96923828]
+lep1_conePt                   lep1_conePt                   lep1_conePt                   lep1_conePt                                                     'F'    [25.0012931824,762.575622559]
+lep2_conePt                   lep2_conePt                   lep2_conePt                   lep2_conePt                                                     'F'    [10.0251293182,311.621795654]
+mT_lep1                       mT_lep1                       mT_lep1                       mT_lep1                                                         'F'    [0.0454919971526,864.166137695]
+mT_lep2                       mT_lep2                       mT_lep2                       mT_lep2                                                         'F'    [0,497.234008789]
+mTauTauVis                    mTauTauVis                    mTauTauVis                    mTauTauVis                                                      'F'    [6.6144080162,1215.3782959]
+max_lep_eta                   max_lep_eta                   max_lep_eta                   max_lep_eta                                                     'F'    [-2.32574057579,2.499792099]
+mbb_loose                     mbb_loose                     mbb_loose                     mbb_loose                                                       'F'    [-1,2521.50927734]
 min_lep_eta                   min_lep_eta                   min_lep_eta                   min_lep_eta                                                     'F'    [-2.48922228813,2.35373139381]
-mindr_lep1_jet                mindr_lep1_jet                mindr_lep1_jet                mindr_lep1_jet                                                  'F'    [0.400259554386,3.70439887047]
-mindr_lep2_jet                mindr_lep2_jet                mindr_lep2_jet                mindr_lep2_jet                                                  'F'    [0.400366961956,3.88784837723]
-mindr_tau_jet                 mindr_tau_jet                 mindr_tau_jet                 mindr_tau_jet                                                   'F'    [0.400059759617,3.91682362556]
-ptbb                          ptbb                          ptbb                          ptbb                                                            'F'    [-1,785.520690918]
-ptmiss                        ptmiss                        ptmiss                        ptmiss                                                          'F'    [1.33424890041,776.80267334]
-tau_eta                       tau_eta                       tau_eta                       tau_eta                                                         'F'    [-2.29905700684,2.29886484146]
-tau_pt                        tau_pt                        tau_pt                        tau_pt                                                          'F'    [20.0003414154,477.834136963]
+mindr_lep1_jet                mindr_lep1_jet                mindr_lep1_jet                mindr_lep1_jet                                                  'F'    [0.400219202042,3.86034679413]
+mindr_lep2_jet                mindr_lep2_jet                mindr_lep2_jet                mindr_lep2_jet                                                  'F'    [0.400006175041,4.21694278717]
+mindr_tau_jet                 mindr_tau_jet                 mindr_tau_jet                 mindr_tau_jet                                                   'F'    [0.400059759617,4.43155956268]
+ptmiss                        ptmiss                        ptmiss                        ptmiss                                                          'F'    [0.219754293561,788.580444336]
+tau_eta                       tau_eta                       tau_eta                       tau_eta                                                         'F'    [-2.29905700684,2.2996070385]
 nBJetLoose                    nBJetLoose                    nBJetLoose                    nBJetLoose                                                      'F'    [1,7]
-nJet                          nJet                          nJet                          nJet                                                            'F'    [3,13]
 NSpec 0
 
 
@@ -108,10 +103,10 @@ class ReadPyKeras : public IClassifierReader {
    ReadPyKeras( std::vector<std::string>& theInputVars )
       : IClassifierReader(),
         fClassName( "ReadPyKeras" ),
-        fNvars( 22 )
+        fNvars( 17 )
    {
       // the training input variables
-      const char* inputVars[] = { "avg_dr_jet", "dr_lep1_tau_os", "dr_lep2_tau_ss", "dr_leps", "lep1_conePt", "lep1_eta", "lep2_conePt", "mT_lep1", "mT_lep2", "mTauTauVis", "max_lep_eta", "mbb_loose", "min_lep_eta", "mindr_lep1_jet", "mindr_lep2_jet", "mindr_tau_jet", "ptbb", "ptmiss", "tau_eta", "tau_pt", "nBJetLoose", "nJet" };
+      const char* inputVars[] = { "avg_dr_jet", "dr_lep2_tau_ss", "dr_leps", "lep1_conePt", "lep2_conePt", "mT_lep1", "mT_lep2", "mTauTauVis", "max_lep_eta", "mbb_loose", "min_lep_eta", "mindr_lep1_jet", "mindr_lep2_jet", "mindr_tau_jet", "ptmiss", "tau_eta", "nBJetLoose" };
 
       // sanity checks
       if (theInputVars.size() <= 0) {
@@ -169,16 +164,6 @@ class ReadPyKeras : public IClassifierReader {
       fVmax[15] = 0;
       fVmin[16] = 0;
       fVmax[16] = 0;
-      fVmin[17] = 0;
-      fVmax[17] = 0;
-      fVmin[18] = 0;
-      fVmax[18] = 0;
-      fVmin[19] = 0;
-      fVmax[19] = 0;
-      fVmin[20] = 0;
-      fVmax[20] = 0;
-      fVmin[21] = 0;
-      fVmax[21] = 0;
 
       // initialize input variable types
       fType[0] = 'F';
@@ -198,11 +183,6 @@ class ReadPyKeras : public IClassifierReader {
       fType[14] = 'F';
       fType[15] = 'F';
       fType[16] = 'F';
-      fType[17] = 'F';
-      fType[18] = 'F';
-      fType[19] = 'F';
-      fType[20] = 'F';
-      fType[21] = 'F';
 
       // initialize constants
       Initialize();
@@ -232,15 +212,15 @@ class ReadPyKeras : public IClassifierReader {
    char   GetType( int ivar ) const { return fType[ivar]; }
 
    // normalisation of input variables
-   double fVmin[22];
-   double fVmax[22];
+   double fVmin[17];
+   double fVmax[17];
    double NormVariable( double x, double xmin, double xmax ) const {
       // normalise to output range: [-1, 1]
       return 2*(x - xmin)/(xmax - xmin) - 1.0;
    }
 
    // type of input variable: 'F' or 'I'
-   char   fType[22];
+   char   fType[17];
 
    // initialize internal variables
    void Initialize();

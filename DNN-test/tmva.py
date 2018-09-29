@@ -34,14 +34,14 @@ from keras.optimizers import SGD
 
 
 #=======================List of variables to include
-
-varlist=[
+'''
+varlist_referece =[
 	# (medium b)
-	#'htmiss',
-	#'lep2_eta',
-	#'mbb', 
-	#'nBJetMedium',
-	#'ptbb_loose',
+	'htmiss',
+	'lep2_eta',
+	'mbb', 
+	'nBJetMedium',
+	'ptbb_loose',
 	'avg_dr_jet', 
 	'b1_loose_pt', 
 	'b2_loose_pt', 
@@ -69,89 +69,141 @@ varlist=[
 	'tau_eta',
 	'tau_pt', 
 ]
+'''
+varlist=[
+	'taupt',
+	'avg_dr_jet',
+	'njet',
+	'tau_eta',
+	'dr_leps',
+	'mindr_tau_jet',
+	'mindr_lep1_jet',
+	'dr_lep1_tau_jet',
+	'mTauTauVis',
+	'b1_loose_pt',
+	'b2_loose_pt',
+	'mT_lep2',
+	'mindr_lep2_jet',
+	'dr_lep2_tau_ss',
+	'mbb_loose',
+	'lep2_conePt',
+	'nBJetLoose',
+	'min_lep_eta',
+	'mT_lep1',
+	'ptmiss',
+	'max_lep_eta',
+	'lep1_conePt',
+	'detabb_loose'
+]
 
 
+def train_DNN(bkg, path):
+	###============================path to root files
 
-###============================path to root files
+	forBDTtraining="forBDTtraining"
+	channel='2los_1tau_Tight'
+	rootfilepath = path+"*/*.root"
+	list = glob.glob(rootfilepath)
+	#========convert list of filenames to list of tfile objects
 
-forBDTtraining="forBDTtraining"
-channel='2los_1tau_Tight'
-rootfilepath = "../root/forBDTtraining/*/*.root"
-list = glob.glob(rootfilepath)
-#========convert list of filenames to list of tfile objects
+	root_files=[]
+	for x in range(0,len(list)-1):
+		try:	root_files.append(TFile.Open(list[x]))
+		except: continue
+	#=================A dictionary to contain all data
+	##the list is: ['signal','ttH_hbb','TTW','TTZ','Rares','EWK'
+	if bkg == "TTV":
+		myDict = {
+		'signal':[],
+		'ttH_hbb':[],
+		'TTW':[],
+		'TTZ':[],
+		#'Rares':[],
+		#'EWK':[],
+		#'TT':[]
+		}
+	elif bkg == "TT":
+		myDict = {
+		'signal':[],
+		'ttH_hbb':[],
+		#'TTW':[],
+		#'TTZ':[],
+		#'Rares':[],
+		#'EWK':[],
+		'TT':[]
+		}
+	else:
+		myDict = {
+		'signal':[],
+		'ttH_hbb':[],
+		'TTW':[],
+		'TTZ':[],
+		'Rares':[],
+		'EWK':[],
+		'TT':[]
+		}
+	#====================Filling the dictionary
 
-root_files=[]
-for x in range(0,len(list)-1):
-	try:	root_files.append(TFile.Open(list[x]))
-	except: continue
-#=================A dictionary to contain all data
-##the list is: ['signal','ttH_hbb','TTW','TTZ','Rares','EWK'
-myDict = {'signal':[],'ttH_hbb':[],'TTW':[],'TTZ':[],'Rares':[],'EWK':[]}
-#====================Filling the dictionary
+	for categories in myDict.keys():
+		try:
+			print "\n\nEntering processes "+categories+"\nRoot files found in category: "
+			for root_file in root_files:
+				path_in = channel+"/sel/evtntuple/"+categories+"/evtTree"
+				evt_tree=root_file.Get(path_in)
+				if (evt_tree is not None) :
+					if isinstance(evt_tree,ROOT.TTree):
+						print categories+"\t"+root_file.GetName()
+						myDict[categories].append(evt_tree)
+		except:
+			continue
+	#======================Setting up TMVA and Loading Data
 
-for categories in myDict.keys():
+	dataloader = TMVA.DataLoader('dataset')
+	for branch in myDict['signal'][0].GetListOfBranches():
+		for selection in varlist:
+			if (selection == branch.GetName()):
+				print selection
+				dataloader.AddVariable(branch.GetName())
+
+	TMVA.Tools.Instance()
+	TMVA.PyMethodBase.PyInitialize()
+
+	output = TFile.Open('TMVA.root', 'RECREATE')
+	factory = TMVA.Factory('TMVAClassification', output,
+	                       '!V:!Silent:Color:DrawProgressBar:AnalysisType=Classification')
+
+	dataloader.AddSignalTree(myDict['signal'][0], 1.0)
+
+	for categories in myDict.keys():
+		if categories == 'signal': continue
+		for i in range(0,(len(myDict[categories])-1)):
+			if myDict[categories][i].GetEntries()>1:
+				dataloader.AddBackgroundTree(myDict[categories][i], 1.0)
+	dataloader.PrepareTrainingAndTestTree(TCut(''),'nTrain_Signal=20000:nTrain_Background=12000:SplitMode=Random:NormMode=NumEvents:!V')
+
+	#====================building the model
+
+	model = Sequential()
+	model.add(Dense(50, activation='sigmoid', input_dim=17))
+	model.add(Dense(50, activation='sigmoid'))
+	model.add(Dense(2, activation='softmax'))
+
+
+	# ====================Set loss and optimizer
+	model.compile(loss='categorical_crossentropy',
+	              optimizer=SGD(lr=0.01), metrics=['accuracy', ])
+
+	# =====================Store model to file
+	model.save('model.h5')
+	model.summary()
+
+	# =========================Book methods
+	factory.BookMethod(dataloader, TMVA.Types.kPyKeras, 'PyKeras','!H:!V:FilenameModel=model.h5:NumEpochs=100')
+	# ===============Run training, test and evaluation
 	try:
-		print "\n\nEntering processes "+categories+"\nRoot files found in category: "
-		for root_file in root_files:
-			path_in = channel+"/sel/evtntuple/"+categories+"/evtTree"
-			evt_tree=root_file.Get(path_in)
-			if (evt_tree is not None) :
-				if isinstance(evt_tree,ROOT.TTree):
-					print categories+"\t"+root_file.GetName()
-					myDict[categories].append(evt_tree)
-	except:continue
-#======================Setting up TMVA and Loading Data
+		factory.TrainAllMethods()
+		factory.TestAllMethods()
+		factory.EvaluateAllMethods()
+	except: print "Problem in training"
 
-dataloader = TMVA.DataLoader('dataset')
-for branch in myDict['signal'][0].GetListOfBranches():
-	for selection in varlist:
-		if (selection == branch.GetName()):
-			print selection
-			dataloader.AddVariable(branch.GetName())
-
-TMVA.Tools.Instance()
-TMVA.PyMethodBase.PyInitialize()
-
-output = TFile.Open('TMVA.root', 'RECREATE')
-factory = TMVA.Factory('TMVAClassification', output,
-                       '!V:!Silent:Color:DrawProgressBar:AnalysisType=Classification')
-
-dataloader.AddSignalTree(myDict['signal'][0], 1.0)
-
-for categories in myDict.keys():
-	if categories == 'signal': continue
-	for i in range(0,(len(myDict[categories])-1)):
-		if myDict[categories][i].GetEntries()>1:
-			dataloader.AddBackgroundTree(myDict[categories][i], 1.0)
-
-
-#====================building the model
-
-model = Sequential()
-model.add(Dense(50, activation='sigmoid', input_dim=22))
-model.add(Dense(50, activation='relu'))
-model.add(Dense(50, activation='relu'))
-model.add(Dense(50, activation='relu'))
-model.add(Dense(2, activation='softmax'))
-
-
-# ====================Set loss and optimizer
-model.compile(loss='categorical_crossentropy',
-              optimizer=SGD(lr=0.03), metrics=['accuracy', ])
-
-# =====================Store model to file
-model.save('model.h5')
-model.summary()
-
-# =========================Book methods
-#factory.BookMethod(dataloader, TMVA.Types.kFisher, 'Fisher',
-#                   '!H:!V:Fisher:VarTransform=D,G')
-factory.BookMethod(dataloader, TMVA.Types.kPyKeras, 'PyKeras',
-                   '!H:!V:FilenameModel=model.h5:NumEpochs=50')
-
-# ===============Run training, test and evaluation
-factory.TrainAllMethods()
-factory.TestAllMethods()
-factory.EvaluateAllMethods()
-
-
+train_DNN('TT','../root/forBDTtraining/')
