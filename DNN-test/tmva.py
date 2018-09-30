@@ -1,5 +1,5 @@
 import glob
-
+import keras.optimizers
 from keras.models import Sequential
 from keras.utils import to_categorical
 from keras.layers import Dense
@@ -30,74 +30,7 @@ from keras.regularizers import l2
 from keras.optimizers import SGD
 
 
-
-
-
-#=======================List of variables to include
-'''
-varlist_referece =[
-	# (medium b)
-	'htmiss',
-	'lep2_eta',
-	'mbb', 
-	'nBJetMedium',
-	'ptbb_loose',
-	'avg_dr_jet', 
-	'b1_loose_pt', 
-	'b2_loose_pt', 
-	'detabb_loose',
-	'dr_lep1_tau_os',
-	'dr_lep2_tau_ss',
-	'dr_leps',
-	'drbb_loose', 
-	'lep1_conePt',
-	'lep1_eta',
-	'lep2_conePt',
-	'max_lep_eta', 
-	'mbb_loose', 
-	'min_lep_eta', 
-	'mindr_lep1_jet', 
-	'mindr_lep2_jet', 
-	'mindr_tau_jet',
-	'mT_lep1',
-	'mT_lep2',
-	'mTauTauVis',
-	'nBJetLoose',
-	'nJet',
-	'ptbb', 
-	'ptmiss', 
-	'tau_eta',
-	'tau_pt', 
-]
-'''
-varlist=[
-	'taupt',
-	'avg_dr_jet',
-	'njet',
-	'tau_eta',
-	'dr_leps',
-	'mindr_tau_jet',
-	'mindr_lep1_jet',
-	'dr_lep1_tau_jet',
-	'mTauTauVis',
-	'b1_loose_pt',
-	'b2_loose_pt',
-	'mT_lep2',
-	'mindr_lep2_jet',
-	'dr_lep2_tau_ss',
-	'mbb_loose',
-	'lep2_conePt',
-	'nBJetLoose',
-	'min_lep_eta',
-	'mT_lep1',
-	'ptmiss',
-	'max_lep_eta',
-	'lep1_conePt',
-	'detabb_loose'
-]
-
-
-def train_DNN(bkg, path):
+def train_DNN(bkg, path,varlist,frac,pykeras,GBDT,DNN_TMVA,AdaBDT):
 	###============================path to root files
 
 	forBDTtraining="forBDTtraining"
@@ -107,7 +40,7 @@ def train_DNN(bkg, path):
 	#========convert list of filenames to list of tfile objects
 
 	root_files=[]
-	for x in range(0,len(list)-1):
+	for x in range(0,len(list)):
 		try:	root_files.append(TFile.Open(list[x]))
 		except: continue
 	#=================A dictionary to contain all data
@@ -122,6 +55,16 @@ def train_DNN(bkg, path):
 		#'EWK':[],
 		#'TT':[]
 		}
+	if bkg == "bb":
+		myDict = {
+		'signal':[],
+		'ttH_hbb':[],
+		#'TTW':[],
+		#'TTZ':[],
+		#'Rares':[],
+		#'EWK':[],
+		#'TT':[]
+		}
 	elif bkg == "TT":
 		myDict = {
 		'signal':[],
@@ -132,7 +75,7 @@ def train_DNN(bkg, path):
 		#'EWK':[],
 		'TT':[]
 		}
-	else:
+	elif bkg == "all":
 		myDict = {
 		'signal':[],
 		'ttH_hbb':[],
@@ -143,7 +86,7 @@ def train_DNN(bkg, path):
 		'TT':[]
 		}
 	#====================Filling the dictionary
-
+	nEvtTot = 0
 	for categories in myDict.keys():
 		try:
 			print "\n\nEntering processes "+categories+"\nRoot files found in category: "
@@ -152,8 +95,9 @@ def train_DNN(bkg, path):
 				evt_tree=root_file.Get(path_in)
 				if (evt_tree is not None) :
 					if isinstance(evt_tree,ROOT.TTree):
-						print categories+"\t"+root_file.GetName()
+						print categories+"\t"+root_file.GetName()+' '+str(evt_tree.GetEntries())+' entries.'
 						myDict[categories].append(evt_tree)
+						nEvtTot += evt_tree.GetEntries()
 		except:
 			continue
 	#======================Setting up TMVA and Loading Data
@@ -162,7 +106,6 @@ def train_DNN(bkg, path):
 	for branch in myDict['signal'][0].GetListOfBranches():
 		for selection in varlist:
 			if (selection == branch.GetName()):
-				print selection
 				dataloader.AddVariable(branch.GetName())
 
 	TMVA.Tools.Instance()
@@ -176,34 +119,105 @@ def train_DNN(bkg, path):
 
 	for categories in myDict.keys():
 		if categories == 'signal': continue
-		for i in range(0,(len(myDict[categories])-1)):
-			if myDict[categories][i].GetEntries()>1:
+		for i in range(0,(len(myDict[categories]))):
+			if myDict[categories][i].GetEntries()!=0:
 				dataloader.AddBackgroundTree(myDict[categories][i], 1.0)
-	dataloader.PrepareTrainingAndTestTree(TCut(''),'nTrain_Signal=20000:nTrain_Background=12000:SplitMode=Random:NormMode=NumEvents:!V')
+	train_sig = myDict["signal"][0].GetEntries()*frac
+	train_bkg = (nEvtTot - myDict["signal"][0].GetEntries())*frac
+	dataloader.PrepareTrainingAndTestTree(TCut(''),'nTrain_Signal='+str(train_sig)+':nTrain_Background='+str(train_bkg)+':SplitMode=Random:NormMode=NumEvents:!V')
+	
+	# ==================================Book methods
 
-	#====================building the model
+	if pykeras != 0:
+		####=============PyKeras 			*
 
-	model = Sequential()
-	model.add(Dense(50, activation='sigmoid', input_dim=17))
-	model.add(Dense(50, activation='sigmoid'))
-	model.add(Dense(2, activation='softmax'))
+		#====================building the model
+		model = Sequential()
+		model.add(Dense(1000, activation='tanh', input_dim=18))
+		model.add(Dense(1000, activation='tanh'))
+		model.add(Dense(1000, activation='tanh'))
+		model.add(Dense(1000, activation='tanh'))
+		model.add(Dense(2, activation='relu'))
+		# ====================Set loss and optimizer
+		model.compile(loss='mean_squared_error',
+		              optimizer=keras.optimizers.Adam(lr=0.1, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False), metrics=['binary_accuracy', ])
+		# =====================Store model to file
+		model.save('model.h5')
+		model.summary()
+
+		factory.BookMethod(dataloader, TMVA.Types.kPyKeras, 'PyKeras','!H:!V:FilenameModel=model.h5:NumEpochs=10000')
 
 
-	# ====================Set loss and optimizer
-	model.compile(loss='categorical_crossentropy',
-	              optimizer=SGD(lr=0.01), metrics=['accuracy', ])
+	if GBDT!=0:	
+		#####=============GBDT
+		factory.BookMethod(dataloader, TMVA.Types.kBDT, 'BDTG','!H:!V:NTrees=1000::BoostType=Grad:Shrinkage=0.30:UseBaggedGrad:GradBaggingFraction=0.6:SeparationType=GiniIndex:nCuts=20:PruneMethod=CostComplexity:PruneStrength=50:NNodesMax=5')
 
-	# =====================Store model to file
-	model.save('model.h5')
-	model.summary()
+	if DNN_TMVA!=0:
+		#####=============DNN 				*
+		preq='!H:V:ErrorStrategy=CROSSENTROPY:VarTransform=N:WeightInitialization=XAVIERUNIFORM:'
+		layoutString='Layout=TANH|128,TANH|128,TANH|128,LINEAR:'
+		layer0='TrainingStrategy=LearningRate=1e-1,Momentum=0.9,Repetitions=1,ConvergenceSteps=20,BatchSize=256,TestRepetitions=10,WeightDecay=1e-4,Regularization=L2,DropConfig=0.0+0.5+0.5+0.5, Multithreading=True|'
+		layer1='TrainingStrategy=LearningRate=1e-2,Momentum=0.9,Repetitions=1,ConvergenceSteps=20,BatchSize=256,TestRepetitions=10,WeightDecay=1e-4,Regularization=L2,DropConfig=0.0+0.5+0.5+0.5, Multithreading=True|'
+		layer2='LearningRate=1e-3,Momentum=0.9,Repetitions=1,ConvergenceSteps=20,BatchSize=256,TestRepetitions=10,WeightDecay=1e-4,Regularization=L2,DropConfig=0.0+0.5+0.5+0.5, Multithreading=True:'
+		arch='Architecture=STANDARD'
+		trainingString=preq+layoutString+layer0+layer1+layer2+arch
+		
 
-	# =========================Book methods
-	factory.BookMethod(dataloader, TMVA.Types.kPyKeras, 'PyKeras','!H:!V:FilenameModel=model.h5:NumEpochs=100')
+		factory.BookMethod(dataloader, TMVA.Types.kDNN, 'DNN CPU',trainingString)
+
+	if AdaBDT!=0:
+		#####=============AdaBDT
+		factory.BookMethod(dataloader, TMVA.Types.kBDT, 'BDT','!H:!V:NTrees=1000:nEventsMin=400:MaxDepth=3:BoostType=AdaBoost:SeparationType=GiniIndex:nCuts=20:PruneMethod=NoPruning')
+	
 	# ===============Run training, test and evaluation
+
 	try:
 		factory.TrainAllMethods()
 		factory.TestAllMethods()
 		factory.EvaluateAllMethods()
 	except: print "Problem in training"
+#End train_DNN
 
-train_DNN('TT','../root/forBDTtraining/')
+
+
+
+
+
+
+
+
+
+
+
+
+
+varlist=[
+	'taupt',
+	'avg_dr_jet',
+	'njet',
+	'tau_eta',
+	'dr_leps',
+	'mindr_tau_jet',
+	'mindr_lep1_jet',
+	'dr_lep1_tau_jet',
+	'mTauTauVis',
+	#'b1_loose_pt',
+	#'b2_loose_pt',
+	'mT_lep2',
+	'mindr_lep2_jet',
+	'dr_lep2_tau_ss',
+	'dr_lep1_tau_os',
+	'mbb_loose',
+	'lep2_conePt',
+	'nBJetLoose',
+	'min_lep_eta',
+	'mT_lep1',
+	'ptmiss',
+	'max_lep_eta',
+	'lep1_conePt',
+	#'detabb_loose',
+	'drbb_loose'
+]
+
+train_DNN('TTV','../root/forBDTtraining/',varlist,0.5,
+	pykeras=1,GBDT=0,DNN_TMVA=0,AdaBDT=1)

@@ -4,11 +4,11 @@
     <Info name="TMVA Release" value="4.2.1 [262657]"/>
     <Info name="ROOT Release" value="6.15/01 [397057]"/>
     <Info name="Creator" value="rajat"/>
-    <Info name="Date" value="Sat Sep 29 22:25:26 2018"/>
+    <Info name="Date" value="Sun Sep 30 20:06:21 2018"/>
     <Info name="Host" value="Linux DESKTOP-HIGLJN9 4.4.0-17134-Microsoft #285-Microsoft Thu Aug 30 17:31:00 PST 2018 x86_64 x86_64 x86_64 GNU/Linux"/>
     <Info name="Dir" value="/mnt/c/ubuntu/github/DNN_practice/DNN-test"/>
-    <Info name="Training events" value="32000"/>
-    <Info name="TrainingTime" value="2.16756639e+01"/>
+    <Info name="Training events" value="27400"/>
+    <Info name="TrainingTime" value="5.02161109e+01"/>
     <Info name="AnalysisType" value="Classification"/>
   </GeneralInfo>
   <Options>
@@ -29,24 +29,25 @@
     <Option name="LearningRateSchedule" modified="No"/>
     <Option name="TensorBoard" modified="No"/>
   </Options>
-  <Variables NVar="17">
-    <Variable VarIndex="0" Expression="avg_dr_jet" Label="avg_dr_jet" Title="avg_dr_jet" Unit="" Internal="avg_dr_jet" Type="F" Min="5.23737073e-01" Max="4.26395082e+00"/>
-    <Variable VarIndex="1" Expression="dr_lep2_tau_ss" Label="dr_lep2_tau_ss" Title="dr_lep2_tau_ss" Unit="" Internal="dr_lep2_tau_ss" Type="F" Min="3.00122857e-01" Max="5.54554987e+00"/>
-    <Variable VarIndex="2" Expression="dr_leps" Label="dr_leps" Title="dr_leps" Unit="" Internal="dr_leps" Type="F" Min="6.67156279e-02" Max="5.04116917e+00"/>
-    <Variable VarIndex="3" Expression="lep1_conePt" Label="lep1_conePt" Title="lep1_conePt" Unit="" Internal="lep1_conePt" Type="F" Min="2.50012932e+01" Max="7.62575623e+02"/>
-    <Variable VarIndex="4" Expression="lep2_conePt" Label="lep2_conePt" Title="lep2_conePt" Unit="" Internal="lep2_conePt" Type="F" Min="1.00251293e+01" Max="3.11621796e+02"/>
-    <Variable VarIndex="5" Expression="mT_lep1" Label="mT_lep1" Title="mT_lep1" Unit="" Internal="mT_lep1" Type="F" Min="4.54919972e-02" Max="8.64166138e+02"/>
-    <Variable VarIndex="6" Expression="mT_lep2" Label="mT_lep2" Title="mT_lep2" Unit="" Internal="mT_lep2" Type="F" Min="0.00000000e+00" Max="4.97234009e+02"/>
-    <Variable VarIndex="7" Expression="mTauTauVis" Label="mTauTauVis" Title="mTauTauVis" Unit="" Internal="mTauTauVis" Type="F" Min="6.61440802e+00" Max="1.21537830e+03"/>
-    <Variable VarIndex="8" Expression="max_lep_eta" Label="max_lep_eta" Title="max_lep_eta" Unit="" Internal="max_lep_eta" Type="F" Min="-2.32574058e+00" Max="2.49979210e+00"/>
-    <Variable VarIndex="9" Expression="mbb_loose" Label="mbb_loose" Title="mbb_loose" Unit="" Internal="mbb_loose" Type="F" Min="-1.00000000e+00" Max="2.52150928e+03"/>
-    <Variable VarIndex="10" Expression="min_lep_eta" Label="min_lep_eta" Title="min_lep_eta" Unit="" Internal="min_lep_eta" Type="F" Min="-2.48922229e+00" Max="2.35373139e+00"/>
-    <Variable VarIndex="11" Expression="mindr_lep1_jet" Label="mindr_lep1_jet" Title="mindr_lep1_jet" Unit="" Internal="mindr_lep1_jet" Type="F" Min="4.00219202e-01" Max="3.86034679e+00"/>
-    <Variable VarIndex="12" Expression="mindr_lep2_jet" Label="mindr_lep2_jet" Title="mindr_lep2_jet" Unit="" Internal="mindr_lep2_jet" Type="F" Min="4.00006175e-01" Max="4.21694279e+00"/>
-    <Variable VarIndex="13" Expression="mindr_tau_jet" Label="mindr_tau_jet" Title="mindr_tau_jet" Unit="" Internal="mindr_tau_jet" Type="F" Min="4.00059760e-01" Max="4.43155956e+00"/>
-    <Variable VarIndex="14" Expression="ptmiss" Label="ptmiss" Title="ptmiss" Unit="" Internal="ptmiss" Type="F" Min="2.19754294e-01" Max="7.88580444e+02"/>
-    <Variable VarIndex="15" Expression="tau_eta" Label="tau_eta" Title="tau_eta" Unit="" Internal="tau_eta" Type="F" Min="-2.29905701e+00" Max="2.29960704e+00"/>
-    <Variable VarIndex="16" Expression="nBJetLoose" Label="nBJetLoose" Title="nBJetLoose" Unit="" Internal="nBJetLoose" Type="F" Min="1.00000000e+00" Max="7.00000000e+00"/>
+  <Variables NVar="18">
+    <Variable VarIndex="0" Expression="avg_dr_jet" Label="avg_dr_jet" Title="avg_dr_jet" Unit="" Internal="avg_dr_jet" Type="F" Min="5.12533844e-01" Max="4.09190321e+00"/>
+    <Variable VarIndex="1" Expression="dr_lep1_tau_os" Label="dr_lep1_tau_os" Title="dr_lep1_tau_os" Unit="" Internal="dr_lep1_tau_os" Type="F" Min="3.00703019e-01" Max="5.45266485e+00"/>
+    <Variable VarIndex="2" Expression="dr_lep2_tau_ss" Label="dr_lep2_tau_ss" Title="dr_lep2_tau_ss" Unit="" Internal="dr_lep2_tau_ss" Type="F" Min="3.00122857e-01" Max="5.39696932e+00"/>
+    <Variable VarIndex="3" Expression="dr_leps" Label="dr_leps" Title="dr_leps" Unit="" Internal="dr_leps" Type="F" Min="4.32708301e-02" Max="5.24576235e+00"/>
+    <Variable VarIndex="4" Expression="lep1_conePt" Label="lep1_conePt" Title="lep1_conePt" Unit="" Internal="lep1_conePt" Type="F" Min="2.50012932e+01" Max="1.10739160e+03"/>
+    <Variable VarIndex="5" Expression="lep2_conePt" Label="lep2_conePt" Title="lep2_conePt" Unit="" Internal="lep2_conePt" Type="F" Min="1.00029716e+01" Max="3.43643005e+02"/>
+    <Variable VarIndex="6" Expression="mT_lep1" Label="mT_lep1" Title="mT_lep1" Unit="" Internal="mT_lep1" Type="F" Min="3.65181230e-02" Max="1.35616345e+03"/>
+    <Variable VarIndex="7" Expression="mT_lep2" Label="mT_lep2" Title="mT_lep2" Unit="" Internal="mT_lep2" Type="F" Min="0.00000000e+00" Max="6.35997864e+02"/>
+    <Variable VarIndex="8" Expression="mTauTauVis" Label="mTauTauVis" Title="mTauTauVis" Unit="" Internal="mTauTauVis" Type="F" Min="6.79899025e+00" Max="1.02093518e+03"/>
+    <Variable VarIndex="9" Expression="max_lep_eta" Label="max_lep_eta" Title="max_lep_eta" Unit="" Internal="max_lep_eta" Type="F" Min="-2.35561991e+00" Max="2.49914622e+00"/>
+    <Variable VarIndex="10" Expression="mbb_loose" Label="mbb_loose" Title="mbb_loose" Unit="" Internal="mbb_loose" Type="F" Min="-1.00000000e+00" Max="2.32775317e+03"/>
+    <Variable VarIndex="11" Expression="min_lep_eta" Label="min_lep_eta" Title="min_lep_eta" Unit="" Internal="min_lep_eta" Type="F" Min="-2.49598575e+00" Max="2.38166857e+00"/>
+    <Variable VarIndex="12" Expression="mindr_lep1_jet" Label="mindr_lep1_jet" Title="mindr_lep1_jet" Unit="" Internal="mindr_lep1_jet" Type="F" Min="4.00259554e-01" Max="4.15672731e+00"/>
+    <Variable VarIndex="13" Expression="mindr_lep2_jet" Label="mindr_lep2_jet" Title="mindr_lep2_jet" Unit="" Internal="mindr_lep2_jet" Type="F" Min="4.00366962e-01" Max="3.81288505e+00"/>
+    <Variable VarIndex="14" Expression="mindr_tau_jet" Label="mindr_tau_jet" Title="mindr_tau_jet" Unit="" Internal="mindr_tau_jet" Type="F" Min="4.00019169e-01" Max="3.95948339e+00"/>
+    <Variable VarIndex="15" Expression="ptmiss" Label="ptmiss" Title="ptmiss" Unit="" Internal="ptmiss" Type="F" Min="1.33424890e+00" Max="1.11843591e+03"/>
+    <Variable VarIndex="16" Expression="tau_eta" Label="tau_eta" Title="tau_eta" Unit="" Internal="tau_eta" Type="F" Min="-2.29925776e+00" Max="2.29886484e+00"/>
+    <Variable VarIndex="17" Expression="nBJetLoose" Label="nBJetLoose" Title="nBJetLoose" Unit="" Internal="nBJetLoose" Type="F" Min="1.00000000e+00" Max="7.00000000e+00"/>
   </Variables>
   <Spectators NSpec="0"/>
   <Classes NClass="2">
