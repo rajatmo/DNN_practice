@@ -106,7 +106,9 @@ def train_DNN(bkg, path,varlist,frac,pykeras,GBDT,DNN_TMVA,AdaBDT):
 	for branch in myDict['signal'][0].GetListOfBranches():
 		for selection in varlist:
 			if (selection == branch.GetName()):
-				dataloader.AddVariable(branch.GetName())
+				try:	dataloader.AddVariable(selection)
+				except:
+					print "\n\n\n\n\n\n\n"+selection+" has problems."
 
 	TMVA.Tools.Instance()
 	TMVA.PyMethodBase.PyInitialize()
@@ -133,10 +135,11 @@ def train_DNN(bkg, path,varlist,frac,pykeras,GBDT,DNN_TMVA,AdaBDT):
 
 		#====================building the model
 		model = Sequential()
-		model.add(Dense(1000, activation='tanh', input_dim=18))
-		model.add(Dense(1000, activation='tanh'))
-		model.add(Dense(1000, activation='tanh'))
-		model.add(Dense(1000, activation='tanh'))
+		num_layers=100
+		num_nodes=100
+		model.add(Dense(num_nodes, activation='tanh', input_dim=len(varlist)))
+		for i in range(0,num_layers):
+			model.add(Dense(num_nodes, activation='tanh'))
 		model.add(Dense(2, activation='relu'))
 		# ====================Set loss and optimizer
 		model.compile(loss='mean_squared_error',
@@ -145,7 +148,7 @@ def train_DNN(bkg, path,varlist,frac,pykeras,GBDT,DNN_TMVA,AdaBDT):
 		model.save('model.h5')
 		model.summary()
 
-		factory.BookMethod(dataloader, TMVA.Types.kPyKeras, 'PyKeras','!H:!V:FilenameModel=model.h5:NumEpochs=10000')
+		factory.BookMethod(dataloader, TMVA.Types.kPyKeras, 'PyKeras','!H:!V:FilenameModel=model.h5:NumEpochs=100')
 
 
 	if GBDT!=0:	
@@ -163,7 +166,8 @@ def train_DNN(bkg, path,varlist,frac,pykeras,GBDT,DNN_TMVA,AdaBDT):
 		trainingString=preq+layoutString+layer0+layer1+layer2+arch
 		
 
-		factory.BookMethod(dataloader, TMVA.Types.kDNN, 'DNN CPU',trainingString)
+		try:	factory.BookMethod(dataloader, TMVA.Types.kDNN, 'DNN CPU',trainingString)
+		except: print "kDNN is not working yet."
 
 	if AdaBDT!=0:
 		#####=============AdaBDT
@@ -201,8 +205,6 @@ varlist=[
 	'mindr_lep1_jet',
 	'dr_lep1_tau_jet',
 	'mTauTauVis',
-	#'b1_loose_pt',
-	#'b2_loose_pt',
 	'mT_lep2',
 	'mindr_lep2_jet',
 	'dr_lep2_tau_ss',
@@ -215,9 +217,8 @@ varlist=[
 	'ptmiss',
 	'max_lep_eta',
 	'lep1_conePt',
-	#'detabb_loose',
 	'drbb_loose'
 ]
 
 train_DNN('TTV','../root/forBDTtraining/',varlist,0.5,
-	pykeras=1,GBDT=0,DNN_TMVA=0,AdaBDT=1)
+	pykeras=1,GBDT=0,DNN_TMVA=0,AdaBDT=0)
