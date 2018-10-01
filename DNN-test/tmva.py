@@ -44,7 +44,7 @@ def train_DNN(bkg, path,varlist,frac,pykeras,GBDT,DNN_TMVA,AdaBDT):
 		try:	root_files.append(TFile.Open(list[x]))
 		except: continue
 	#=================A dictionary to contain all data
-	##the list is: ['signal','ttH_hbb','TTW','TTZ','Rares','EWK'
+	##the list is: ['signal','ttH_hbb','TTW','TTZ','Rares','EWK']
 	if bkg == "TTV":
 		myDict = {
 		'signal':[],
@@ -114,10 +114,8 @@ def train_DNN(bkg, path,varlist,frac,pykeras,GBDT,DNN_TMVA,AdaBDT):
 	TMVA.PyMethodBase.PyInitialize()
 
 	output = TFile.Open('TMVA.root', 'RECREATE')
-	factory = TMVA.Factory('TMVAClassification', output,
-	                       '!V:!Silent:Color:DrawProgressBar:AnalysisType=Classification')
-
 	dataloader.AddSignalTree(myDict['signal'][0], 1.0)
+
 
 	for categories in myDict.keys():
 		if categories == 'signal': continue
@@ -129,7 +127,8 @@ def train_DNN(bkg, path,varlist,frac,pykeras,GBDT,DNN_TMVA,AdaBDT):
 	dataloader.PrepareTrainingAndTestTree(TCut(''),'nTrain_Signal='+str(train_sig)+':nTrain_Background='+str(train_bkg)+':SplitMode=Random:NormMode=NumEvents:!V')
 	
 	# ==================================Book methods
-
+	factory = TMVA.Factory('TMVAClassification', output,
+	                       '!V:!Silent:Color:DrawProgressBar:AnalysisType=Classification')
 	if pykeras != 0:
 		####=============PyKeras 			*
 
