@@ -1,34 +1,25 @@
 import glob
-import keras.optimizers
-from keras.models import Sequential
-from keras.utils import to_categorical
-from keras.layers import Dense
-from keras.optimizers import SGD
 import itertools as it
 import numpy as np
-from ROOT import TCanvas, TPaveLabel, TPaveText, TPavesText, TText
-from ROOT import TArrow, TLine
-from ROOT import gROOT, gBenchmark
-import ROOT
-
-
-from root_numpy import root2array, stretch
-from numpy.lib.recfunctions import append_fields
-from itertools import product
-from ROOT.Math import PtEtaPhiEVector,VectorUtil
 import math , array 
 import random
-
-import glob
-from ROOT import TMVA, TFile, TTree, TCut
 from subprocess import call
 from os.path import isfile
+from numpy.lib.recfunctions import append_fields
+from itertools import product
 
+import keras
+import keras.optimizers
+from keras.optimizers import SGD
 from keras.models import Sequential
+from keras.utils import to_categorical
 from keras.layers import Dense, Activation
 from keras.regularizers import l2
-from keras.optimizers import SGD
 
+import ROOT
+from ROOT import TCanvas, TMVA, TFile, TTree, TCut
+
+from root_numpy import root2array, stretch
 
 def train_DNN(bkg, path,varlist,frac,pykeras,GBDT,DNN_TMVA,AdaBDT):
 	###============================path to root files
