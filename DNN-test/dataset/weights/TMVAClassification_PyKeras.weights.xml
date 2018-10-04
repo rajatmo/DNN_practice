@@ -4,11 +4,11 @@
     <Info name="TMVA Release" value="4.2.1 [262657]"/>
     <Info name="ROOT Release" value="6.15/01 [397057]"/>
     <Info name="Creator" value="rajat"/>
-    <Info name="Date" value="Sun Sep 30 20:06:21 2018"/>
+    <Info name="Date" value="Thu Oct  4 06:12:18 2018"/>
     <Info name="Host" value="Linux DESKTOP-HIGLJN9 4.4.0-17134-Microsoft #285-Microsoft Thu Aug 30 17:31:00 PST 2018 x86_64 x86_64 x86_64 GNU/Linux"/>
     <Info name="Dir" value="/mnt/c/ubuntu/github/DNN_practice/DNN-test"/>
-    <Info name="Training events" value="27400"/>
-    <Info name="TrainingTime" value="5.02161109e+01"/>
+    <Info name="Training events" value="37000"/>
+    <Info name="TrainingTime" value="2.99516487e+00"/>
     <Info name="AnalysisType" value="Classification"/>
   </GeneralInfo>
   <Options>
@@ -21,7 +21,7 @@
     <Option name="FilenameModel" modified="Yes">model.h5</Option>
     <Option name="FilenameTrainedModel" modified="No">dataset/weights/TrainedModel_PyKeras.h5</Option>
     <Option name="BatchSize" modified="No">100</Option>
-    <Option name="NumEpochs" modified="Yes">100</Option>
+    <Option name="NumEpochs" modified="Yes">5</Option>
     <Option name="Verbose" modified="No">1</Option>
     <Option name="ContinueTraining" modified="No">False</Option>
     <Option name="SaveBestOnly" modified="No">True</Option>
@@ -29,30 +29,92 @@
     <Option name="LearningRateSchedule" modified="No"/>
     <Option name="TensorBoard" modified="No"/>
   </Options>
-  <Variables NVar="18">
-    <Variable VarIndex="0" Expression="avg_dr_jet" Label="avg_dr_jet" Title="avg_dr_jet" Unit="" Internal="avg_dr_jet" Type="F" Min="5.12533844e-01" Max="4.09190321e+00"/>
-    <Variable VarIndex="1" Expression="dr_lep1_tau_os" Label="dr_lep1_tau_os" Title="dr_lep1_tau_os" Unit="" Internal="dr_lep1_tau_os" Type="F" Min="3.00703019e-01" Max="5.45266485e+00"/>
-    <Variable VarIndex="2" Expression="dr_lep2_tau_ss" Label="dr_lep2_tau_ss" Title="dr_lep2_tau_ss" Unit="" Internal="dr_lep2_tau_ss" Type="F" Min="3.00122857e-01" Max="5.39696932e+00"/>
-    <Variable VarIndex="3" Expression="dr_leps" Label="dr_leps" Title="dr_leps" Unit="" Internal="dr_leps" Type="F" Min="4.32708301e-02" Max="5.24576235e+00"/>
-    <Variable VarIndex="4" Expression="lep1_conePt" Label="lep1_conePt" Title="lep1_conePt" Unit="" Internal="lep1_conePt" Type="F" Min="2.50012932e+01" Max="1.10739160e+03"/>
-    <Variable VarIndex="5" Expression="lep2_conePt" Label="lep2_conePt" Title="lep2_conePt" Unit="" Internal="lep2_conePt" Type="F" Min="1.00029716e+01" Max="3.43643005e+02"/>
-    <Variable VarIndex="6" Expression="mT_lep1" Label="mT_lep1" Title="mT_lep1" Unit="" Internal="mT_lep1" Type="F" Min="3.65181230e-02" Max="1.35616345e+03"/>
-    <Variable VarIndex="7" Expression="mT_lep2" Label="mT_lep2" Title="mT_lep2" Unit="" Internal="mT_lep2" Type="F" Min="0.00000000e+00" Max="6.35997864e+02"/>
-    <Variable VarIndex="8" Expression="mTauTauVis" Label="mTauTauVis" Title="mTauTauVis" Unit="" Internal="mTauTauVis" Type="F" Min="6.79899025e+00" Max="1.02093518e+03"/>
-    <Variable VarIndex="9" Expression="max_lep_eta" Label="max_lep_eta" Title="max_lep_eta" Unit="" Internal="max_lep_eta" Type="F" Min="-2.35561991e+00" Max="2.49914622e+00"/>
-    <Variable VarIndex="10" Expression="mbb_loose" Label="mbb_loose" Title="mbb_loose" Unit="" Internal="mbb_loose" Type="F" Min="-1.00000000e+00" Max="2.32775317e+03"/>
-    <Variable VarIndex="11" Expression="min_lep_eta" Label="min_lep_eta" Title="min_lep_eta" Unit="" Internal="min_lep_eta" Type="F" Min="-2.49598575e+00" Max="2.38166857e+00"/>
-    <Variable VarIndex="12" Expression="mindr_lep1_jet" Label="mindr_lep1_jet" Title="mindr_lep1_jet" Unit="" Internal="mindr_lep1_jet" Type="F" Min="4.00259554e-01" Max="4.15672731e+00"/>
-    <Variable VarIndex="13" Expression="mindr_lep2_jet" Label="mindr_lep2_jet" Title="mindr_lep2_jet" Unit="" Internal="mindr_lep2_jet" Type="F" Min="4.00366962e-01" Max="3.81288505e+00"/>
-    <Variable VarIndex="14" Expression="mindr_tau_jet" Label="mindr_tau_jet" Title="mindr_tau_jet" Unit="" Internal="mindr_tau_jet" Type="F" Min="4.00019169e-01" Max="3.95948339e+00"/>
-    <Variable VarIndex="15" Expression="ptmiss" Label="ptmiss" Title="ptmiss" Unit="" Internal="ptmiss" Type="F" Min="1.33424890e+00" Max="1.11843591e+03"/>
-    <Variable VarIndex="16" Expression="tau_eta" Label="tau_eta" Title="tau_eta" Unit="" Internal="tau_eta" Type="F" Min="-2.29925776e+00" Max="2.29886484e+00"/>
-    <Variable VarIndex="17" Expression="nBJetLoose" Label="nBJetLoose" Title="nBJetLoose" Unit="" Internal="nBJetLoose" Type="F" Min="1.00000000e+00" Max="7.00000000e+00"/>
+  <Variables NVar="80">
+    <Variable VarIndex="0" Expression="AK12_lead_mass" Label="AK12_lead_mass" Title="AK12_lead_mass" Unit="" Internal="AK12_lead_mass" Type="F" Min="-1.00000000e+00" Max="7.04500000e+02"/>
+    <Variable VarIndex="1" Expression="AK12_lead_pt" Label="AK12_lead_pt" Title="AK12_lead_pt" Unit="" Internal="AK12_lead_pt" Type="F" Min="-1.00000000e+00" Max="1.43559717e+03"/>
+    <Variable VarIndex="2" Expression="DR_AK12_tau" Label="DR_AK12_tau" Title="DR_AK12_tau" Unit="" Internal="DR_AK12_tau" Type="F" Min="-1.00000000e+00" Max="5.00885010e+00"/>
+    <Variable VarIndex="3" Expression="HTTv2_lead_mass" Label="HTTv2_lead_mass" Title="HTTv2_lead_mass" Unit="" Internal="HTTv2_lead_mass" Type="F" Min="-1.00000000e+00" Max="7.78000000e+02"/>
+    <Variable VarIndex="4" Expression="HTTv2_lead_pt" Label="HTTv2_lead_pt" Title="HTTv2_lead_pt" Unit="" Internal="HTTv2_lead_pt" Type="F" Min="-1.00000000e+00" Max="1.63032349e+03"/>
+    <Variable VarIndex="5" Expression="HadTop_eta" Label="HadTop_eta" Title="HadTop_eta" Unit="" Internal="HadTop_eta" Type="F" Min="1.13180984e-04" Max="7.52723837e+00"/>
+    <Variable VarIndex="6" Expression="HadTop_pt" Label="HadTop_pt" Title="HadTop_pt" Unit="" Internal="HadTop_pt" Type="F" Min="4.40578967e-01" Max="1.28134546e+03"/>
+    <Variable VarIndex="7" Expression="HadTop_pt_CSVsort3rd" Label="HadTop_pt_CSVsort3rd" Title="HadTop_pt_CSVsort3rd" Unit="" Internal="HadTop_pt_CSVsort3rd" Type="F" Min="4.40578967e-01" Max="1.28134546e+03"/>
+    <Variable VarIndex="8" Expression="HadTop_pt_CSVsort3rd_WithKinFit" Label="HadTop_pt_CSVsort3rd_WithKinFit" Title="HadTop_pt_CSVsort3rd_WithKinFit" Unit="" Internal="HadTop_pt_CSVsort3rd_WithKinFit" Type="F" Min="5.76680422e-01" Max="1.28134546e+03"/>
+    <Variable VarIndex="9" Expression="HadTop_pt_highestCSV" Label="HadTop_pt_highestCSV" Title="HadTop_pt_highestCSV" Unit="" Internal="HadTop_pt_highestCSV" Type="F" Min="0.00000000e+00" Max="1.51838501e+03"/>
+    <Variable VarIndex="10" Expression="HadTop_pt_highestCSV_WithKinFit" Label="HadTop_pt_highestCSV_WithKinFit" Title="HadTop_pt_highestCSV_WithKinFit" Unit="" Internal="HadTop_pt_highestCSV_WithKinFit" Type="F" Min="0.00000000e+00" Max="1.31744812e+03"/>
+    <Variable VarIndex="11" Expression="HadTop_pt_multilep" Label="HadTop_pt_multilep" Title="HadTop_pt_multilep" Unit="" Internal="HadTop_pt_multilep" Type="F" Min="0.00000000e+00" Max="9.44543823e+02"/>
+    <Variable VarIndex="12" Expression="avg_dr_jet" Label="avg_dr_jet" Title="avg_dr_jet" Unit="" Internal="avg_dr_jet" Type="F" Min="5.77547073e-01" Max="4.14682341e+00"/>
+    <Variable VarIndex="13" Expression="b1_loose_pt" Label="b1_loose_pt" Title="b1_loose_pt" Unit="" Internal="b1_loose_pt" Type="F" Min="2.50008068e+01" Max="1.72889233e+03"/>
+    <Variable VarIndex="14" Expression="b1_pt" Label="b1_pt" Title="b1_pt" Unit="" Internal="b1_pt" Type="F" Min="-1.00000000e+00" Max="1.27678467e+03"/>
+    <Variable VarIndex="15" Expression="b2_loose_pt" Label="b2_loose_pt" Title="b2_loose_pt" Unit="" Internal="b2_loose_pt" Type="F" Min="-1.00000000e+00" Max="5.96258545e+02"/>
+    <Variable VarIndex="16" Expression="b2_pt" Label="b2_pt" Title="b2_pt" Unit="" Internal="b2_pt" Type="F" Min="-1.00000000e+00" Max="4.26866333e+02"/>
+    <Variable VarIndex="17" Expression="detabb" Label="detabb" Title="detabb" Unit="" Internal="detabb" Type="F" Min="-1.00000000e+00" Max="4.42919922e+00"/>
+    <Variable VarIndex="18" Expression="detabb_loose" Label="detabb_loose" Title="detabb_loose" Unit="" Internal="detabb_loose" Type="F" Min="-1.00000000e+00" Max="4.61718750e+00"/>
+    <Variable VarIndex="19" Expression="dr_lep1_tau_os" Label="dr_lep1_tau_os" Title="dr_lep1_tau_os" Unit="" Internal="dr_lep1_tau_os" Type="F" Min="3.00643802e-01" Max="5.36282492e+00"/>
+    <Variable VarIndex="20" Expression="dr_lep2_tau_ss" Label="dr_lep2_tau_ss" Title="dr_lep2_tau_ss" Unit="" Internal="dr_lep2_tau_ss" Type="F" Min="3.01096410e-01" Max="5.32511663e+00"/>
+    <Variable VarIndex="21" Expression="dr_leps" Label="dr_leps" Title="dr_leps" Unit="" Internal="dr_leps" Type="F" Min="7.20676333e-02" Max="5.45581198e+00"/>
+    <Variable VarIndex="22" Expression="drbb" Label="drbb" Title="drbb" Unit="" Internal="drbb" Type="F" Min="-1.00000000e+00" Max="5.34462738e+00"/>
+    <Variable VarIndex="23" Expression="drbb_loose" Label="drbb_loose" Title="drbb_loose" Unit="" Internal="drbb_loose" Type="F" Min="-1.00000000e+00" Max="5.52717876e+00"/>
+    <Variable VarIndex="24" Expression="fittedHadTop_eta" Label="fittedHadTop_eta" Title="fittedHadTop_eta" Unit="" Internal="fittedHadTop_eta" Type="F" Min="1.13180984e-04" Max="7.52723837e+00"/>
+    <Variable VarIndex="25" Expression="fittedHadTop_pt" Label="fittedHadTop_pt" Title="fittedHadTop_pt" Unit="" Internal="fittedHadTop_pt" Type="F" Min="4.40578967e-01" Max="1.28134546e+03"/>
+    <Variable VarIndex="26" Expression="htmiss" Label="htmiss" Title="htmiss" Unit="" Internal="htmiss" Type="F" Min="4.17657226e-01" Max="1.12436780e+03"/>
+    <Variable VarIndex="27" Expression="lep1_conePt" Label="lep1_conePt" Title="lep1_conePt" Unit="" Internal="lep1_conePt" Type="F" Min="2.50035744e+01" Max="9.00574524e+02"/>
+    <Variable VarIndex="28" Expression="lep1_eta" Label="lep1_eta" Title="lep1_eta" Unit="" Internal="lep1_eta" Type="F" Min="-2.48876953e+00" Max="2.49707031e+00"/>
+    <Variable VarIndex="29" Expression="lep1_fake_prob" Label="lep1_fake_prob" Title="lep1_fake_prob" Unit="" Internal="lep1_fake_prob" Type="F" Min="6.18894510e-02" Max="1.00000000e+00"/>
+    <Variable VarIndex="30" Expression="lep1_genLepPt" Label="lep1_genLepPt" Title="lep1_genLepPt" Unit="" Internal="lep1_genLepPt" Type="F" Min="0.00000000e+00" Max="9.02000000e+02"/>
+    <Variable VarIndex="31" Expression="lep1_pt" Label="lep1_pt" Title="lep1_pt" Unit="" Internal="lep1_pt" Type="F" Min="5.37802744e+00" Max="9.00574524e+02"/>
+    <Variable VarIndex="32" Expression="lep1_tth_mva" Label="lep1_tth_mva" Title="lep1_tth_mva" Unit="" Internal="lep1_tth_mva" Type="F" Min="-9.98779297e-01" Max="9.98992920e-01"/>
+    <Variable VarIndex="33" Expression="lep2_conePt" Label="lep2_conePt" Title="lep2_conePt" Unit="" Internal="lep2_conePt" Type="F" Min="1.00016575e+01" Max="5.10443268e+02"/>
+    <Variable VarIndex="34" Expression="lep2_eta" Label="lep2_eta" Title="lep2_eta" Unit="" Internal="lep2_eta" Type="F" Min="-2.49804688e+00" Max="2.49951172e+00"/>
+    <Variable VarIndex="35" Expression="lep2_fake_prob" Label="lep2_fake_prob" Title="lep2_fake_prob" Unit="" Internal="lep2_fake_prob" Type="F" Min="6.64548017e-03" Max="1.00000000e+00"/>
+    <Variable VarIndex="36" Expression="lep2_genLepPt" Label="lep2_genLepPt" Title="lep2_genLepPt" Unit="" Internal="lep2_genLepPt" Type="F" Min="0.00000000e+00" Max="5.50000000e+02"/>
+    <Variable VarIndex="37" Expression="lep2_pt" Label="lep2_pt" Title="lep2_pt" Unit="" Internal="lep2_pt" Type="F" Min="5.01802588e+00" Max="5.10443268e+02"/>
+    <Variable VarIndex="38" Expression="lep2_tth_mva" Label="lep2_tth_mva" Title="lep2_tth_mva" Unit="" Internal="lep2_tth_mva" Type="F" Min="-9.98260498e-01" Max="9.98565674e-01"/>
+    <Variable VarIndex="39" Expression="mT_lep1" Label="mT_lep1" Title="mT_lep1" Unit="" Internal="mT_lep1" Type="F" Min="1.68920774e-02" Max="1.09753796e+03"/>
+    <Variable VarIndex="40" Expression="mT_lep2" Label="mT_lep2" Title="mT_lep2" Unit="" Internal="mT_lep2" Type="F" Min="0.00000000e+00" Max="6.50634766e+02"/>
+    <Variable VarIndex="41" Expression="mTauTauVis" Label="mTauTauVis" Title="mTauTauVis" Unit="" Internal="mTauTauVis" Type="F" Min="3.97219300e+00" Max="1.23897986e+03"/>
+    <Variable VarIndex="42" Expression="max_lep_eta" Label="max_lep_eta" Title="max_lep_eta" Unit="" Internal="max_lep_eta" Type="F" Min="-2.28027344e+00" Max="2.49951172e+00"/>
+    <Variable VarIndex="43" Expression="mbb" Label="mbb" Title="mbb" Unit="" Internal="mbb" Type="F" Min="-1.00000000e+00" Max="1.62937598e+03"/>
+    <Variable VarIndex="44" Expression="mbb_loose" Label="mbb_loose" Title="mbb_loose" Unit="" Internal="mbb_loose" Type="F" Min="-1.00000000e+00" Max="3.04946094e+03"/>
+    <Variable VarIndex="45" Expression="minDR_AK12_L" Label="minDR_AK12_L" Title="minDR_AK12_L" Unit="" Internal="minDR_AK12_L" Type="F" Min="-1.00000000e+00" Max="4.27378321e+00"/>
+    <Variable VarIndex="46" Expression="minDR_AK12_lep" Label="minDR_AK12_lep" Title="minDR_AK12_lep" Unit="" Internal="minDR_AK12_lep" Type="F" Min="-1.00000000e+00" Max="4.36625767e+00"/>
+    <Variable VarIndex="47" Expression="minDR_HTTv2_L" Label="minDR_HTTv2_L" Title="minDR_HTTv2_L" Unit="" Internal="minDR_HTTv2_L" Type="F" Min="-1.00000000e+00" Max="4.38404846e+00"/>
+    <Variable VarIndex="48" Expression="minDR_HTTv2_lep" Label="minDR_HTTv2_lep" Title="minDR_HTTv2_lep" Unit="" Internal="minDR_HTTv2_lep" Type="F" Min="-1.00000000e+00" Max="4.70231581e+00"/>
+    <Variable VarIndex="49" Expression="minDR_HTTv2_tau" Label="minDR_HTTv2_tau" Title="minDR_HTTv2_tau" Unit="" Internal="minDR_HTTv2_tau" Type="F" Min="-1.00000000e+00" Max="4.93338346e+00"/>
+    <Variable VarIndex="50" Expression="min_lep_eta" Label="min_lep_eta" Title="min_lep_eta" Unit="" Internal="min_lep_eta" Type="F" Min="-2.49804688e+00" Max="2.38085938e+00"/>
+    <Variable VarIndex="51" Expression="mindr_lep1_jet" Label="mindr_lep1_jet" Title="mindr_lep1_jet" Unit="" Internal="mindr_lep1_jet" Type="F" Min="1.06811523e-04" Max="4.16750479e+00"/>
+    <Variable VarIndex="52" Expression="mindr_lep2_jet" Label="mindr_lep2_jet" Title="mindr_lep2_jet" Unit="" Internal="mindr_lep2_jet" Type="F" Min="9.76562500e-04" Max="4.11460400e+00"/>
+    <Variable VarIndex="53" Expression="mindr_tau_jet" Label="mindr_tau_jet" Title="mindr_tau_jet" Unit="" Internal="mindr_tau_jet" Type="F" Min="4.00238603e-01" Max="4.29385662e+00"/>
+    <Variable VarIndex="54" Expression="ptbb" Label="ptbb" Title="ptbb" Unit="" Internal="ptbb" Type="F" Min="-1.00000000e+00" Max="9.02387390e+02"/>
+    <Variable VarIndex="55" Expression="ptbb_loose" Label="ptbb_loose" Title="ptbb_loose" Unit="" Internal="ptbb_loose" Type="F" Min="-1.00000000e+00" Max="1.53732776e+03"/>
+    <Variable VarIndex="56" Expression="ptmiss" Label="ptmiss" Title="ptmiss" Unit="" Internal="ptmiss" Type="F" Min="7.88730443e-01" Max="1.17462390e+03"/>
+    <Variable VarIndex="57" Expression="tau_eta" Label="tau_eta" Title="tau_eta" Unit="" Internal="tau_eta" Type="F" Min="-2.29980469e+00" Max="2.29980469e+00"/>
+    <Variable VarIndex="58" Expression="tau_fake_prob" Label="tau_fake_prob" Title="tau_fake_prob" Unit="" Internal="tau_fake_prob" Type="F" Min="0.00000000e+00" Max="1.00000000e+00"/>
+    <Variable VarIndex="59" Expression="tau_genTauPt" Label="tau_genTauPt" Title="tau_genTauPt" Unit="" Internal="tau_genTauPt" Type="F" Min="0.00000000e+00" Max="5.94000000e+02"/>
+    <Variable VarIndex="60" Expression="tau_mva" Label="tau_mva" Title="tau_mva" Unit="" Internal="tau_mva" Type="F" Min="-2.42675781e-01" Max="9.96582031e-01"/>
+    <Variable VarIndex="61" Expression="tau_pt" Label="tau_pt" Title="tau_pt" Unit="" Internal="tau_pt" Type="F" Min="2.00001526e+01" Max="7.08352844e+02"/>
+    <Variable VarIndex="62" Expression="N_jetAK12" Label="N_jetAK12" Title="N_jetAK12" Unit="" Internal="N_jetAK12" Type="F" Min="0.00000000e+00" Max="4.00000000e+00"/>
+    <Variable VarIndex="63" Expression="N_jetAK8" Label="N_jetAK8" Title="N_jetAK8" Unit="" Internal="N_jetAK8" Type="F" Min="0.00000000e+00" Max="4.00000000e+00"/>
+    <Variable VarIndex="64" Expression="hadtruth" Label="hadtruth" Title="hadtruth" Unit="" Internal="hadtruth" Type="F" Min="0.00000000e+00" Max="1.00000000e+00"/>
+    <Variable VarIndex="65" Expression="hadtruth_boosted" Label="hadtruth_boosted" Title="hadtruth_boosted" Unit="" Internal="hadtruth_boosted" Type="F" Min="0.00000000e+00" Max="1.00000000e+00"/>
+    <Variable VarIndex="66" Expression="hadtruth_semi_boosted" Label="hadtruth_semi_boosted" Title="hadtruth_semi_boosted" Unit="" Internal="hadtruth_semi_boosted" Type="F" Min="0.00000000e+00" Max="1.00000000e+00"/>
+    <Variable VarIndex="67" Expression="lep1_charge" Label="lep1_charge" Title="lep1_charge" Unit="" Internal="lep1_charge" Type="F" Min="-1.00000000e+00" Max="1.00000000e+00"/>
+    <Variable VarIndex="68" Expression="lep1_isTight" Label="lep1_isTight" Title="lep1_isTight" Unit="" Internal="lep1_isTight" Type="F" Min="0.00000000e+00" Max="1.00000000e+00"/>
+    <Variable VarIndex="69" Expression="lep1_tau_charge" Label="lep1_tau_charge" Title="lep1_tau_charge" Unit="" Internal="lep1_tau_charge" Type="F" Min="-2.00000000e+00" Max="2.00000000e+00"/>
+    <Variable VarIndex="70" Expression="lep2_charge" Label="lep2_charge" Title="lep2_charge" Unit="" Internal="lep2_charge" Type="F" Min="-1.00000000e+00" Max="1.00000000e+00"/>
+    <Variable VarIndex="71" Expression="lep2_isTight" Label="lep2_isTight" Title="lep2_isTight" Unit="" Internal="lep2_isTight" Type="F" Min="0.00000000e+00" Max="1.00000000e+00"/>
+    <Variable VarIndex="72" Expression="nBJetLoose" Label="nBJetLoose" Title="nBJetLoose" Unit="" Internal="nBJetLoose" Type="F" Min="1.00000000e+00" Max="7.00000000e+00"/>
+    <Variable VarIndex="73" Expression="nBJetMedium" Label="nBJetMedium" Title="nBJetMedium" Unit="" Internal="nBJetMedium" Type="F" Min="0.00000000e+00" Max="5.00000000e+00"/>
+    <Variable VarIndex="74" Expression="nElectron" Label="nElectron" Title="nElectron" Unit="" Internal="nElectron" Type="F" Min="0.00000000e+00" Max="2.00000000e+00"/>
+    <Variable VarIndex="75" Expression="nHTTv2" Label="nHTTv2" Title="nHTTv2" Unit="" Internal="nHTTv2" Type="F" Min="0.00000000e+00" Max="3.00000000e+00"/>
+    <Variable VarIndex="76" Expression="nJet" Label="nJet" Title="nJet" Unit="" Internal="nJet" Type="F" Min="3.00000000e+00" Max="1.40000000e+01"/>
+    <Variable VarIndex="77" Expression="tau_charge" Label="tau_charge" Title="tau_charge" Unit="" Internal="tau_charge" Type="F" Min="-1.00000000e+00" Max="1.00000000e+00"/>
+    <Variable VarIndex="78" Expression="luminosityBlock" Label="luminosityBlock" Title="luminosityBlock" Unit="" Internal="luminosityBlock" Type="F" Min="1.00000000e+00" Max="1.34110000e+04"/>
+    <Variable VarIndex="79" Expression="event" Label="event" Title="event" Unit="" Internal="event" Type="F" Min="4.20000000e+01" Max="3.69110440e+07"/>
   </Variables>
   <Spectators NSpec="0"/>
   <Classes NClass="2">
-    <Class Name="Signal" Index="0"/>
-    <Class Name="Background" Index="1"/>
+    <Class Name="Background" Index="0"/>
+    <Class Name="Signal" Index="1"/>
   </Classes>
   <Transformations NTransformations="0"/>
   <MVAPdfs/>
