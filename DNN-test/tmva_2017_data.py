@@ -29,23 +29,23 @@ varlist=[
     'AK12_lead_mass',
     'AK12_lead_pt',
     'DR_AK12_tau',
-    #'HTT_boosted',
-    #'HTT_boosted_WithKinFit',
-    #'HTT_semi_boosted',
-    #'HTT_semi_boosted_WithKinFit',
+    'HTT_boosted',
+    #'HTT_boosted_WithKinFit',#prob
+    'HTT_semi_boosted',
+    #'HTT_semi_boosted_WithKinFit',#prob
     'HTTv2_lead_mass',
     'HTTv2_lead_pt',
     'HadTop_eta',
     'HadTop_pt',
     'HadTop_pt_CSVsort3rd',
     'HadTop_pt_CSVsort3rd_WithKinFit',
-    #'HadTop_pt_boosted',
-    #'HadTop_pt_boosted_WithKinFit',
+    'HadTop_pt_boosted',
+    #'HadTop_pt_boosted_WithKinFit',#prob
     'HadTop_pt_highestCSV',
     'HadTop_pt_highestCSV_WithKinFit',
     'HadTop_pt_multilep',
-    #'HadTop_pt_semi_boosted',
-    #'HadTop_pt_semi_boosted_WithKinFit',
+    'HadTop_pt_semi_boosted',
+    #'HadTop_pt_semi_boosted_WithKinFit',#prob
     'avg_dr_jet',
     'b1_loose_pt',
     'b1_pt',
@@ -58,22 +58,22 @@ varlist=[
     'dr_leps',
     'drbb',
     'drbb_loose',
-    #'evtWeight',
-    #'fitHTptoHTmass',
-    #'fitHTptoHTpt',
+    'evtWeight',
+    #'fitHTptoHTmass',#prob
+    #'fitHTptoHTpt',#prob
     'fittedHadTop_eta',
     'fittedHadTop_pt',
-    #'genTopPt',
-    #'genTopPt_CSVsort3rd',
-    #'genTopPt_CSVsort3rd_WithKinFit',
-    #'genTopPt_boosted',
-    #'genTopPt_boosted_WithKinFit',
-    #'genTopPt_highestCSV',
-    #'genTopPt_highestCSV_WithKinFit',
-    #'genTopPt_multilep',
-    #'genTopPt_semi_boosted',
-    #'genTopPt_semi_boosted_WithKinFit',
-    #'genWeight',
+    'genTopPt',
+    'genTopPt_CSVsort3rd',
+    'genTopPt_CSVsort3rd_WithKinFit',
+    'genTopPt_boosted',
+    #'genTopPt_boosted_WithKinFit',#prob
+    'genTopPt_highestCSV',
+    'genTopPt_highestCSV_WithKinFit',
+    'genTopPt_multilep',
+    'genTopPt_semi_boosted',
+    #'genTopPt_semi_boosted_WithKinFit',#prob
+    'genWeight',
     'htmiss',
     'lep1_conePt',
     'lep1_eta',
@@ -98,7 +98,7 @@ varlist=[
     'minDR_HTTv2_L',
     'minDR_HTTv2_lep',
     'minDR_HTTv2_tau',
-    'min_lep_eta',
+    #'min_lep_eta',#prob
     'mindr_lep1_jet',
     'mindr_lep2_jet',
     'mindr_tau_jet',
@@ -112,16 +112,16 @@ varlist=[
     'tau_pt',
     'N_jetAK12',
     'N_jetAK8',
-    #'bWj1Wj2_isGenMatchedWithKinFit',
-    #'bWj1Wj2_isGenMatched_CSVsort3rd',
-    #'bWj1Wj2_isGenMatched_CSVsort3rd_WithKinFit',
-    #'bWj1Wj2_isGenMatched_IHEP',
-    #'bWj1Wj2_isGenMatched_boosted',
-    #'bWj1Wj2_isGenMatched_boosted_WithKinFit',
-    #'bWj1Wj2_isGenMatched_highestCSV',
-    #'bWj1Wj2_isGenMatched_highestCSV_WithKinFit',
-    #'bWj1Wj2_isGenMatched_semi_boosted',
-    #'bWj1Wj2_isGenMatched_semi_boosted_WithKinFit',
+    'bWj1Wj2_isGenMatchedWithKinFit',
+    'bWj1Wj2_isGenMatched_CSVsort3rd',
+    'bWj1Wj2_isGenMatched_CSVsort3rd_WithKinFit',
+    'bWj1Wj2_isGenMatched_IHEP',
+    'bWj1Wj2_isGenMatched_boosted',
+    #'bWj1Wj2_isGenMatched_boosted_WithKinFit',#prob
+    'bWj1Wj2_isGenMatched_highestCSV',
+    'bWj1Wj2_isGenMatched_highestCSV_WithKinFit',
+    'bWj1Wj2_isGenMatched_semi_boosted',
+    #'bWj1Wj2_isGenMatched_semi_boosted_WithKinFit',#prob
     'hadtruth',
     'hadtruth_boosted',
     'hadtruth_semi_boosted',
@@ -135,15 +135,17 @@ varlist=[
     'nElectron',
     'nHTTv2',
     'nJet',
-    #'nLep',
-    #'nMuon',
-    #'nTau',
+    #'nLep',#prob
+    'nMuon',
+    #'nTau',#prob
     'tau_charge',
-    #'tau_isTight',
-    #'run',
+    'tau_isTight',
+    #'run',#prob
     'luminosityBlock',
     'event'
 ]
+
+varlist1=['nJet','lep1_pt','mTauTauVis','lep2_pt','mindr_lep1_jet']
 
 
 
@@ -214,7 +216,7 @@ for categories in myDict.keys():
 
 dataloader = TMVA.DataLoader('dataset')
 for branch in myDict['signal'][0].GetListOfBranches():
-    for selection in varlist:
+    for selection in varlist1:
         if (selection == branch.GetName()):
             try:
                 dataloader.AddVariable(selection)
@@ -255,11 +257,7 @@ factory = TMVA.Factory('TMVAClassification', output,
 
 #====================building the model
 model = Sequential()
-num_layers=10
-num_nodes=25
-model.add(Dense(num_nodes, activation='tanh', input_dim=len(varlist)))
-for i in range(0,num_layers):
-    model.add(Dense(num_nodes, activation='tanh'))
+model.add(Dense(64, activation='relu', W_regularizer=l2(1e-5), input_dim=len(varlist1)))
 model.add(Dense(2, activation='softmax'))
 # ====================Set loss and optimizer
 model.compile(loss='mean_squared_error',
@@ -269,9 +267,9 @@ model.compile(loss='mean_squared_error',
 model.save('model.h5')
 model.summary()
 
-factory.BookMethod(dataloader, TMVA.Types.kPyKeras, 'PyKeras','!H:!V:FilenameModel=model.h5:NumEpochs=5')
+factory.BookMethod(dataloader, TMVA.Types.kPyKeras, 'PyKeras','H:!V:FilenameModel=model.h5:NumEpochs=100:BatchSize=370')
 
-factory.BookMethod(dataloader, TMVA.Types.kBDT, 'BDTG','!H:!V:NTrees=1000::BoostType=Grad:Shrinkage=0.30:UseBaggedGrad:GradBaggingFraction=0.6:SeparationType=GiniIndex:nCuts=20:PruneMethod=CostComplexity:PruneStrength=50:NNodesMax=5')
+#factory.BookMethod(dataloader, TMVA.Types.kBDT, 'BDTG','!H:!V:NTrees=1000::BoostType=Grad:Shrinkage=0.30:UseBaggedGrad:GradBaggingFraction=0.6:SeparationType=GiniIndex:nCuts=20:PruneMethod=CostComplexity:PruneStrength=50:NNodesMax=5')
 
 
 factory.TrainAllMethods()

@@ -10,7 +10,7 @@ Method         : PyKeras::PyKeras
 TMVA Release   : 4.2.1         [262657]
 ROOT Release   : 6.15/01       [397057]
 Creator        : rajat
-Date           : Thu Oct  4 06:12:18 2018
+Date           : Thu Oct  4 21:06:22 2018
 Host           : Linux DESKTOP-HIGLJN9 4.4.0-17134-Microsoft #285-Microsoft Thu Aug 30 17:31:00 PST 2018 x86_64 x86_64 x86_64 GNU/Linux
 Dir            : /mnt/c/ubuntu/github/DNN_practice/DNN-test
 Training events: 37000
@@ -21,16 +21,16 @@ Analysis type  : [Classification]
 
 # Set by User:
 V: "False" [Verbose output (short form of "VerbosityLevel" below - overrides the latter one)]
-H: "False" [Print method-specific help message]
+H: "True" [Print method-specific help message]
 FilenameModel: "model.h5" [Filename of the initial Keras model]
-NumEpochs: "5" [Number of training epochs]
+BatchSize: "370" [Training batch size]
+NumEpochs: "100" [Number of training epochs]
 # Default:
 VerbosityLevel: "Default" [Verbosity level]
 VarTransform: "None" [List of variable transformations performed before training, e.g., "D_Background,P_Signal,G,N_AllClasses" for: "Decorrelation, PCA-transformation, Gaussianisation, Normalisation, each for the given class of events ('AllClasses' denotes all events of all classes, if no class indication is given, 'All' is assumed)"]
 CreateMVAPdfs: "False" [Create PDFs for classifier outputs (signal and background)]
 IgnoreNegWeightsInTraining: "False" [Events with negative weights are ignored in the training (but are included for testing and performance evaluation)]
 FilenameTrainedModel: "dataset/weights/TrainedModel_PyKeras.h5" [Filename of the trained output Keras model]
-BatchSize: "100" [Training batch size]
 Verbose: "1" [Keras verbosity during training]
 ContinueTraining: "False" [Load weights from previous training]
 SaveBestOnly: "True" [Store only weights with smallest validation loss]
@@ -42,87 +42,12 @@ TensorBoard: "" [Write a log during training to visualize and monitor the traini
 
 #VAR -*-*-*-*-*-*-*-*-*-*-*-* variables *-*-*-*-*-*-*-*-*-*-*-*-
 
-NVar 80
-AK12_lead_mass                AK12_lead_mass                AK12_lead_mass                AK12_lead_mass                                                  'F'    [-1,704.5]
-AK12_lead_pt                  AK12_lead_pt                  AK12_lead_pt                  AK12_lead_pt                                                    'F'    [-1,1435.59716797]
-DR_AK12_tau                   DR_AK12_tau                   DR_AK12_tau                   DR_AK12_tau                                                     'F'    [-1,5.00885009766]
-HTTv2_lead_mass               HTTv2_lead_mass               HTTv2_lead_mass               HTTv2_lead_mass                                                 'F'    [-1,778]
-HTTv2_lead_pt                 HTTv2_lead_pt                 HTTv2_lead_pt                 HTTv2_lead_pt                                                   'F'    [-1,1630.32348633]
-HadTop_eta                    HadTop_eta                    HadTop_eta                    HadTop_eta                                                      'F'    [0.000113180984044,7.52723836899]
-HadTop_pt                     HadTop_pt                     HadTop_pt                     HadTop_pt                                                       'F'    [0.440578967333,1281.34545898]
-HadTop_pt_CSVsort3rd          HadTop_pt_CSVsort3rd          HadTop_pt_CSVsort3rd          HadTop_pt_CSVsort3rd                                            'F'    [0.440578967333,1281.34545898]
-HadTop_pt_CSVsort3rd_WithKinFit HadTop_pt_CSVsort3rd_WithKinFit HadTop_pt_CSVsort3rd_WithKinFit HadTop_pt_CSVsort3rd_WithKinFit                                     'F'    [0.576680421829,1281.34545898]
-HadTop_pt_highestCSV          HadTop_pt_highestCSV          HadTop_pt_highestCSV          HadTop_pt_highestCSV                                            'F'    [0,1518.38500977]
-HadTop_pt_highestCSV_WithKinFit HadTop_pt_highestCSV_WithKinFit HadTop_pt_highestCSV_WithKinFit HadTop_pt_highestCSV_WithKinFit                                     'F'    [0,1317.44812012]
-HadTop_pt_multilep            HadTop_pt_multilep            HadTop_pt_multilep            HadTop_pt_multilep                                              'F'    [0,944.543823242]
-avg_dr_jet                    avg_dr_jet                    avg_dr_jet                    avg_dr_jet                                                      'F'    [0.577547073364,4.14682340622]
-b1_loose_pt                   b1_loose_pt                   b1_loose_pt                   b1_loose_pt                                                     'F'    [25.0008068085,1728.89233398]
-b1_pt                         b1_pt                         b1_pt                         b1_pt                                                           'F'    [-1,1276.78466797]
-b2_loose_pt                   b2_loose_pt                   b2_loose_pt                   b2_loose_pt                                                     'F'    [-1,596.258544922]
-b2_pt                         b2_pt                         b2_pt                         b2_pt                                                           'F'    [-1,426.866333008]
-detabb                        detabb                        detabb                        detabb                                                          'F'    [-1,4.42919921875]
-detabb_loose                  detabb_loose                  detabb_loose                  detabb_loose                                                    'F'    [-1,4.6171875]
-dr_lep1_tau_os                dr_lep1_tau_os                dr_lep1_tau_os                dr_lep1_tau_os                                                  'F'    [0.300643801689,5.36282491684]
-dr_lep2_tau_ss                dr_lep2_tau_ss                dr_lep2_tau_ss                dr_lep2_tau_ss                                                  'F'    [0.301096409559,5.32511663437]
-dr_leps                       dr_leps                       dr_leps                       dr_leps                                                         'F'    [0.0720676332712,5.45581197739]
-drbb                          drbb                          drbb                          drbb                                                            'F'    [-1,5.34462738037]
-drbb_loose                    drbb_loose                    drbb_loose                    drbb_loose                                                      'F'    [-1,5.52717876434]
-fittedHadTop_eta              fittedHadTop_eta              fittedHadTop_eta              fittedHadTop_eta                                                'F'    [0.000113180984044,7.52723836899]
-fittedHadTop_pt               fittedHadTop_pt               fittedHadTop_pt               fittedHadTop_pt                                                 'F'    [0.440578967333,1281.34545898]
-htmiss                        htmiss                        htmiss                        htmiss                                                          'F'    [0.417657226324,1124.36779785]
-lep1_conePt                   lep1_conePt                   lep1_conePt                   lep1_conePt                                                     'F'    [25.0035743713,900.574523926]
-lep1_eta                      lep1_eta                      lep1_eta                      lep1_eta                                                        'F'    [-2.48876953125,2.4970703125]
-lep1_fake_prob                lep1_fake_prob                lep1_fake_prob                lep1_fake_prob                                                  'F'    [0.0618894509971,1]
-lep1_genLepPt                 lep1_genLepPt                 lep1_genLepPt                 lep1_genLepPt                                                   'F'    [0,902]
+NVar 5
 lep1_pt                       lep1_pt                       lep1_pt                       lep1_pt                                                         'F'    [5.37802743912,900.574523926]
-lep1_tth_mva                  lep1_tth_mva                  lep1_tth_mva                  lep1_tth_mva                                                    'F'    [-0.998779296875,0.998992919922]
-lep2_conePt                   lep2_conePt                   lep2_conePt                   lep2_conePt                                                     'F'    [10.001657486,510.443267822]
-lep2_eta                      lep2_eta                      lep2_eta                      lep2_eta                                                        'F'    [-2.498046875,2.49951171875]
-lep2_fake_prob                lep2_fake_prob                lep2_fake_prob                lep2_fake_prob                                                  'F'    [0.00664548017085,1]
-lep2_genLepPt                 lep2_genLepPt                 lep2_genLepPt                 lep2_genLepPt                                                   'F'    [0,550]
 lep2_pt                       lep2_pt                       lep2_pt                       lep2_pt                                                         'F'    [5.01802587509,510.443267822]
-lep2_tth_mva                  lep2_tth_mva                  lep2_tth_mva                  lep2_tth_mva                                                    'F'    [-0.998260498047,0.998565673828]
-mT_lep1                       mT_lep1                       mT_lep1                       mT_lep1                                                         'F'    [0.0168920774013,1097.53796387]
-mT_lep2                       mT_lep2                       mT_lep2                       mT_lep2                                                         'F'    [0,650.634765625]
 mTauTauVis                    mTauTauVis                    mTauTauVis                    mTauTauVis                                                      'F'    [3.9721930027,1238.9798584]
-max_lep_eta                   max_lep_eta                   max_lep_eta                   max_lep_eta                                                     'F'    [-2.2802734375,2.49951171875]
-mbb                           mbb                           mbb                           mbb                                                             'F'    [-1,1629.37597656]
-mbb_loose                     mbb_loose                     mbb_loose                     mbb_loose                                                       'F'    [-1,3049.4609375]
-minDR_AK12_L                  minDR_AK12_L                  minDR_AK12_L                  minDR_AK12_L                                                    'F'    [-1,4.27378320694]
-minDR_AK12_lep                minDR_AK12_lep                minDR_AK12_lep                minDR_AK12_lep                                                  'F'    [-1,4.36625766754]
-minDR_HTTv2_L                 minDR_HTTv2_L                 minDR_HTTv2_L                 minDR_HTTv2_L                                                   'F'    [-1,4.38404846191]
-minDR_HTTv2_lep               minDR_HTTv2_lep               minDR_HTTv2_lep               minDR_HTTv2_lep                                                 'F'    [-1,4.70231580734]
-minDR_HTTv2_tau               minDR_HTTv2_tau               minDR_HTTv2_tau               minDR_HTTv2_tau                                                 'F'    [-1,4.93338346481]
-min_lep_eta                   min_lep_eta                   min_lep_eta                   min_lep_eta                                                     'F'    [-2.498046875,2.380859375]
 mindr_lep1_jet                mindr_lep1_jet                mindr_lep1_jet                mindr_lep1_jet                                                  'F'    [0.000106811523438,4.16750478745]
-mindr_lep2_jet                mindr_lep2_jet                mindr_lep2_jet                mindr_lep2_jet                                                  'F'    [0.0009765625,4.11460399628]
-mindr_tau_jet                 mindr_tau_jet                 mindr_tau_jet                 mindr_tau_jet                                                   'F'    [0.400238603354,4.29385662079]
-ptbb                          ptbb                          ptbb                          ptbb                                                            'F'    [-1,902.387390137]
-ptbb_loose                    ptbb_loose                    ptbb_loose                    ptbb_loose                                                      'F'    [-1,1537.32775879]
-ptmiss                        ptmiss                        ptmiss                        ptmiss                                                          'F'    [0.788730442524,1174.62390137]
-tau_eta                       tau_eta                       tau_eta                       tau_eta                                                         'F'    [-2.2998046875,2.2998046875]
-tau_fake_prob                 tau_fake_prob                 tau_fake_prob                 tau_fake_prob                                                   'F'    [0,1]
-tau_genTauPt                  tau_genTauPt                  tau_genTauPt                  tau_genTauPt                                                    'F'    [0,594]
-tau_mva                       tau_mva                       tau_mva                       tau_mva                                                         'F'    [-0.24267578125,0.99658203125]
-tau_pt                        tau_pt                        tau_pt                        tau_pt                                                          'F'    [20.0001525879,708.352844238]
-N_jetAK12                     N_jetAK12                     N_jetAK12                     N_jetAK12                                                       'F'    [0,4]
-N_jetAK8                      N_jetAK8                      N_jetAK8                      N_jetAK8                                                        'F'    [0,4]
-hadtruth                      hadtruth                      hadtruth                      hadtruth                                                        'F'    [0,1]
-hadtruth_boosted              hadtruth_boosted              hadtruth_boosted              hadtruth_boosted                                                'F'    [0,1]
-hadtruth_semi_boosted         hadtruth_semi_boosted         hadtruth_semi_boosted         hadtruth_semi_boosted                                           'F'    [0,1]
-lep1_charge                   lep1_charge                   lep1_charge                   lep1_charge                                                     'F'    [-1,1]
-lep1_isTight                  lep1_isTight                  lep1_isTight                  lep1_isTight                                                    'F'    [0,1]
-lep1_tau_charge               lep1_tau_charge               lep1_tau_charge               lep1_tau_charge                                                 'F'    [-2,2]
-lep2_charge                   lep2_charge                   lep2_charge                   lep2_charge                                                     'F'    [-1,1]
-lep2_isTight                  lep2_isTight                  lep2_isTight                  lep2_isTight                                                    'F'    [0,1]
-nBJetLoose                    nBJetLoose                    nBJetLoose                    nBJetLoose                                                      'F'    [1,7]
-nBJetMedium                   nBJetMedium                   nBJetMedium                   nBJetMedium                                                     'F'    [0,5]
-nElectron                     nElectron                     nElectron                     nElectron                                                       'F'    [0,2]
-nHTTv2                        nHTTv2                        nHTTv2                        nHTTv2                                                          'F'    [0,3]
 nJet                          nJet                          nJet                          nJet                                                            'F'    [3,14]
-tau_charge                    tau_charge                    tau_charge                    tau_charge                                                      'F'    [-1,1]
-luminosityBlock               luminosityBlock               luminosityBlock               luminosityBlock                                                 'F'    [1,13411]
-event                         event                         event                         event                                                           'F'    [42,36911044]
 NSpec 0
 
 
@@ -166,10 +91,10 @@ class ReadPyKeras : public IClassifierReader {
    ReadPyKeras( std::vector<std::string>& theInputVars )
       : IClassifierReader(),
         fClassName( "ReadPyKeras" ),
-        fNvars( 80 )
+        fNvars( 5 )
    {
       // the training input variables
-      const char* inputVars[] = { "AK12_lead_mass", "AK12_lead_pt", "DR_AK12_tau", "HTTv2_lead_mass", "HTTv2_lead_pt", "HadTop_eta", "HadTop_pt", "HadTop_pt_CSVsort3rd", "HadTop_pt_CSVsort3rd_WithKinFit", "HadTop_pt_highestCSV", "HadTop_pt_highestCSV_WithKinFit", "HadTop_pt_multilep", "avg_dr_jet", "b1_loose_pt", "b1_pt", "b2_loose_pt", "b2_pt", "detabb", "detabb_loose", "dr_lep1_tau_os", "dr_lep2_tau_ss", "dr_leps", "drbb", "drbb_loose", "fittedHadTop_eta", "fittedHadTop_pt", "htmiss", "lep1_conePt", "lep1_eta", "lep1_fake_prob", "lep1_genLepPt", "lep1_pt", "lep1_tth_mva", "lep2_conePt", "lep2_eta", "lep2_fake_prob", "lep2_genLepPt", "lep2_pt", "lep2_tth_mva", "mT_lep1", "mT_lep2", "mTauTauVis", "max_lep_eta", "mbb", "mbb_loose", "minDR_AK12_L", "minDR_AK12_lep", "minDR_HTTv2_L", "minDR_HTTv2_lep", "minDR_HTTv2_tau", "min_lep_eta", "mindr_lep1_jet", "mindr_lep2_jet", "mindr_tau_jet", "ptbb", "ptbb_loose", "ptmiss", "tau_eta", "tau_fake_prob", "tau_genTauPt", "tau_mva", "tau_pt", "N_jetAK12", "N_jetAK8", "hadtruth", "hadtruth_boosted", "hadtruth_semi_boosted", "lep1_charge", "lep1_isTight", "lep1_tau_charge", "lep2_charge", "lep2_isTight", "nBJetLoose", "nBJetMedium", "nElectron", "nHTTv2", "nJet", "tau_charge", "luminosityBlock", "event" };
+      const char* inputVars[] = { "lep1_pt", "lep2_pt", "mTauTauVis", "mindr_lep1_jet", "nJet" };
 
       // sanity checks
       if (theInputVars.size() <= 0) {
@@ -203,156 +128,6 @@ class ReadPyKeras : public IClassifierReader {
       fVmax[3] = 0;
       fVmin[4] = 0;
       fVmax[4] = 0;
-      fVmin[5] = 0;
-      fVmax[5] = 0;
-      fVmin[6] = 0;
-      fVmax[6] = 0;
-      fVmin[7] = 0;
-      fVmax[7] = 0;
-      fVmin[8] = 0;
-      fVmax[8] = 0;
-      fVmin[9] = 0;
-      fVmax[9] = 0;
-      fVmin[10] = 0;
-      fVmax[10] = 0;
-      fVmin[11] = 0;
-      fVmax[11] = 0;
-      fVmin[12] = 0;
-      fVmax[12] = 0;
-      fVmin[13] = 0;
-      fVmax[13] = 0;
-      fVmin[14] = 0;
-      fVmax[14] = 0;
-      fVmin[15] = 0;
-      fVmax[15] = 0;
-      fVmin[16] = 0;
-      fVmax[16] = 0;
-      fVmin[17] = 0;
-      fVmax[17] = 0;
-      fVmin[18] = 0;
-      fVmax[18] = 0;
-      fVmin[19] = 0;
-      fVmax[19] = 0;
-      fVmin[20] = 0;
-      fVmax[20] = 0;
-      fVmin[21] = 0;
-      fVmax[21] = 0;
-      fVmin[22] = 0;
-      fVmax[22] = 0;
-      fVmin[23] = 0;
-      fVmax[23] = 0;
-      fVmin[24] = 0;
-      fVmax[24] = 0;
-      fVmin[25] = 0;
-      fVmax[25] = 0;
-      fVmin[26] = 0;
-      fVmax[26] = 0;
-      fVmin[27] = 0;
-      fVmax[27] = 0;
-      fVmin[28] = 0;
-      fVmax[28] = 0;
-      fVmin[29] = 0;
-      fVmax[29] = 0;
-      fVmin[30] = 0;
-      fVmax[30] = 0;
-      fVmin[31] = 0;
-      fVmax[31] = 0;
-      fVmin[32] = 0;
-      fVmax[32] = 0;
-      fVmin[33] = 0;
-      fVmax[33] = 0;
-      fVmin[34] = 0;
-      fVmax[34] = 0;
-      fVmin[35] = 0;
-      fVmax[35] = 0;
-      fVmin[36] = 0;
-      fVmax[36] = 0;
-      fVmin[37] = 0;
-      fVmax[37] = 0;
-      fVmin[38] = 0;
-      fVmax[38] = 0;
-      fVmin[39] = 0;
-      fVmax[39] = 0;
-      fVmin[40] = 0;
-      fVmax[40] = 0;
-      fVmin[41] = 0;
-      fVmax[41] = 0;
-      fVmin[42] = 0;
-      fVmax[42] = 0;
-      fVmin[43] = 0;
-      fVmax[43] = 0;
-      fVmin[44] = 0;
-      fVmax[44] = 0;
-      fVmin[45] = 0;
-      fVmax[45] = 0;
-      fVmin[46] = 0;
-      fVmax[46] = 0;
-      fVmin[47] = 0;
-      fVmax[47] = 0;
-      fVmin[48] = 0;
-      fVmax[48] = 0;
-      fVmin[49] = 0;
-      fVmax[49] = 0;
-      fVmin[50] = 0;
-      fVmax[50] = 0;
-      fVmin[51] = 0;
-      fVmax[51] = 0;
-      fVmin[52] = 0;
-      fVmax[52] = 0;
-      fVmin[53] = 0;
-      fVmax[53] = 0;
-      fVmin[54] = 0;
-      fVmax[54] = 0;
-      fVmin[55] = 0;
-      fVmax[55] = 0;
-      fVmin[56] = 0;
-      fVmax[56] = 0;
-      fVmin[57] = 0;
-      fVmax[57] = 0;
-      fVmin[58] = 0;
-      fVmax[58] = 0;
-      fVmin[59] = 0;
-      fVmax[59] = 0;
-      fVmin[60] = 0;
-      fVmax[60] = 0;
-      fVmin[61] = 0;
-      fVmax[61] = 0;
-      fVmin[62] = 0;
-      fVmax[62] = 0;
-      fVmin[63] = 0;
-      fVmax[63] = 0;
-      fVmin[64] = 0;
-      fVmax[64] = 0;
-      fVmin[65] = 0;
-      fVmax[65] = 0;
-      fVmin[66] = 0;
-      fVmax[66] = 0;
-      fVmin[67] = 0;
-      fVmax[67] = 0;
-      fVmin[68] = 0;
-      fVmax[68] = 0;
-      fVmin[69] = 0;
-      fVmax[69] = 0;
-      fVmin[70] = 0;
-      fVmax[70] = 0;
-      fVmin[71] = 0;
-      fVmax[71] = 0;
-      fVmin[72] = 0;
-      fVmax[72] = 0;
-      fVmin[73] = 0;
-      fVmax[73] = 0;
-      fVmin[74] = 0;
-      fVmax[74] = 0;
-      fVmin[75] = 0;
-      fVmax[75] = 0;
-      fVmin[76] = 0;
-      fVmax[76] = 0;
-      fVmin[77] = 0;
-      fVmax[77] = 0;
-      fVmin[78] = 0;
-      fVmax[78] = 0;
-      fVmin[79] = 0;
-      fVmax[79] = 0;
 
       // initialize input variable types
       fType[0] = 'F';
@@ -360,81 +135,6 @@ class ReadPyKeras : public IClassifierReader {
       fType[2] = 'F';
       fType[3] = 'F';
       fType[4] = 'F';
-      fType[5] = 'F';
-      fType[6] = 'F';
-      fType[7] = 'F';
-      fType[8] = 'F';
-      fType[9] = 'F';
-      fType[10] = 'F';
-      fType[11] = 'F';
-      fType[12] = 'F';
-      fType[13] = 'F';
-      fType[14] = 'F';
-      fType[15] = 'F';
-      fType[16] = 'F';
-      fType[17] = 'F';
-      fType[18] = 'F';
-      fType[19] = 'F';
-      fType[20] = 'F';
-      fType[21] = 'F';
-      fType[22] = 'F';
-      fType[23] = 'F';
-      fType[24] = 'F';
-      fType[25] = 'F';
-      fType[26] = 'F';
-      fType[27] = 'F';
-      fType[28] = 'F';
-      fType[29] = 'F';
-      fType[30] = 'F';
-      fType[31] = 'F';
-      fType[32] = 'F';
-      fType[33] = 'F';
-      fType[34] = 'F';
-      fType[35] = 'F';
-      fType[36] = 'F';
-      fType[37] = 'F';
-      fType[38] = 'F';
-      fType[39] = 'F';
-      fType[40] = 'F';
-      fType[41] = 'F';
-      fType[42] = 'F';
-      fType[43] = 'F';
-      fType[44] = 'F';
-      fType[45] = 'F';
-      fType[46] = 'F';
-      fType[47] = 'F';
-      fType[48] = 'F';
-      fType[49] = 'F';
-      fType[50] = 'F';
-      fType[51] = 'F';
-      fType[52] = 'F';
-      fType[53] = 'F';
-      fType[54] = 'F';
-      fType[55] = 'F';
-      fType[56] = 'F';
-      fType[57] = 'F';
-      fType[58] = 'F';
-      fType[59] = 'F';
-      fType[60] = 'F';
-      fType[61] = 'F';
-      fType[62] = 'F';
-      fType[63] = 'F';
-      fType[64] = 'F';
-      fType[65] = 'F';
-      fType[66] = 'F';
-      fType[67] = 'F';
-      fType[68] = 'F';
-      fType[69] = 'F';
-      fType[70] = 'F';
-      fType[71] = 'F';
-      fType[72] = 'F';
-      fType[73] = 'F';
-      fType[74] = 'F';
-      fType[75] = 'F';
-      fType[76] = 'F';
-      fType[77] = 'F';
-      fType[78] = 'F';
-      fType[79] = 'F';
 
       // initialize constants
       Initialize();
@@ -464,15 +164,15 @@ class ReadPyKeras : public IClassifierReader {
    char   GetType( int ivar ) const { return fType[ivar]; }
 
    // normalisation of input variables
-   double fVmin[80];
-   double fVmax[80];
+   double fVmin[5];
+   double fVmax[5];
    double NormVariable( double x, double xmin, double xmax ) const {
       // normalise to output range: [-1, 1]
       return 2*(x - xmin)/(xmax - xmin) - 1.0;
    }
 
    // type of input variable: 'F' or 'I'
-   char   fType[80];
+   char   fType[5];
 
    // initialize internal variables
    void Initialize();

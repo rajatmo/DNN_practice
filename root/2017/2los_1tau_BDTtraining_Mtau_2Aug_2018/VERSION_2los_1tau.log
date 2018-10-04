@@ -1,0 +1,204 @@
+================================================================================================================================================================
+Inspecting dependency: /home/mmaurya/CMSSW_9_4_0_pre1/src/
+................................................................................................................................................................
+Executing: git -C /home/mmaurya/CMSSW_9_4_0_pre1/src/ log -n1 --format="%D"
+HEAD -> master, origin/master
+................................................................................................................................................................
+Executing: git -C /home/mmaurya/CMSSW_9_4_0_pre1/src/ log -n3 --format="%H | %cd | %cn | %s"
+6ec8ead2b89d9bd3e2181011c83db6985b537dd2 | Tue Jul 17 19:30:44 2018 +0300 | Karl Ehatäht | Add option to run nanoAOD Ntuple production on FastSim samples
+0f3ae1c9188f139427f93fcf56b4c310fc4e327a | Thu Jul 5 14:52:19 2018 +0300 | Ram | Add btagDeepCvsL and btagDeepCvsB discriminators
+50f258dfb4a16912ca11cc62a6460ce78e6f252f | Mon Jun 4 21:35:58 2018 +0300 | Karl Ehatäht | Merge branch 'master' of https://github.com/cms-nanoAOD/cmssw
+................................................................................................................................................................
+Executing: git -C /home/mmaurya/CMSSW_9_4_0_pre1/src/ status --porcelain=v1 --branch
+## master
+ D PhysicsTools/NanoAOD/BuildFile.xml
+ D PhysicsTools/PatAlgos/BuildFile.xml
+?? CombineHarvester/
+?? HiggsAnalysis/CombinedLimit/
+?? PhysicsTools/NanoAODTools/
+?? TauAnalysis/ClassicSVfit/
+?? TauAnalysis/SVfitTF/
+?? ttH_Htautau_MEM_Analysis/
+?? tth-bdt-training/
+?? tth-htt/
+?? tthAnalysis/
+................................................................................................................................................................
+Executing: git -C /home/mmaurya/CMSSW_9_4_0_pre1/src/ diff HEAD --no-ext-diff --unified=0 --exit-code -a --no-prefix --word-diff=plain --color=never
+diff --git PhysicsTools/NanoAOD/BuildFile.xml PhysicsTools/NanoAOD/BuildFile.xml
+deleted file mode 100644
+index c36ed418462..00000000000
+--- PhysicsTools/NanoAOD/BuildFile.xml
++++ /dev/null
+@@ -1,10 +0,0 @@
+[-<use   name="FWCore/Utilities"/>-]
+[-<use   name="FWCore/Common"/>-]
+[-<use   name="DataFormats/Common"/>-]
+[-<use   name="DataFormats/StdDictionaries"/>-]
+[-<use   name="DataFormats/Candidate"/>-]
+[-<use   name="DataFormats/NanoAOD"/>-]
+[-<use   name="boost"/>-]
+[-<export>-]
+[-  <lib   name="1"/>-]
+[-</export>-]
+diff --git PhysicsTools/PatAlgos/BuildFile.xml PhysicsTools/PatAlgos/BuildFile.xml
+deleted file mode 100644
+index ef2a89a33bb..00000000000
+--- PhysicsTools/PatAlgos/BuildFile.xml
++++ /dev/null
+@@ -1,28 +0,0 @@
+[-<use   name="DataFormats/Candidate"/>-]
+[-<use   name="DataFormats/Common"/>-]
+[-<use   name="DataFormats/EgammaCandidates"/>-]
+[-<use   name="DataFormats/EgammaReco"/>-]
+[-<use   name="DataFormats/JetReco"/>-]
+[-<use   name="DataFormats/Math"/>-]
+[-<use   name="DataFormats/METReco"/>-]
+[-<use   name="DataFormats/MuonReco"/>-]
+[-<use   name="DataFormats/PatCandidates"/>-]
+[-<use   name="DataFormats/TauReco"/>-]
+[-<use   name="DataFormats/TrackReco"/>-]
+[-<use   name="DataFormats/VertexReco"/>-]
+[-<use   name="FWCore/Framework"/>-]
+[-<use   name="FWCore/ParameterSet"/>-]
+[-<use   name="FWCore/ServiceRegistry"/>-]
+[-<use   name="FWCore/Utilities"/>-]
+[-<use   name="PhysicsTools/PatUtils"/>-]
+[-<use   name="PhysicsTools/Utilities"/>-]
+[-<use   name="PhysicsTools/IsolationAlgos"/>-]
+[-<use   name="Geometry/CaloTopology"/>-]
+[-<use   name="RecoEgamma/EgammaTools"/>-]
+[-<use   name="RecoTracker/DeDx"/>-]
+[-<use   name="CondFormats/HcalObjects"/>-]
+[-<use   name="CondFormats/EcalObjects"/>-]
+[-<use   name="clhep"/>-]
+[-<export>-]
+[-  <lib   name="1"/>-]
+[-</export>-]
+================================================================================================================================================================
+Inspecting dependency: /home/mmaurya/CMSSW_9_4_0_pre1/src/tthAnalysis/HiggsToTauTau
+................................................................................................................................................................
+Executing: git -C /home/mmaurya/CMSSW_9_4_0_pre1/src/tthAnalysis/HiggsToTauTau log -n1 --format="%D"
+HEAD -> master, origin/master, origin/HEAD
+................................................................................................................................................................
+Executing: git -C /home/mmaurya/CMSSW_9_4_0_pre1/src/tthAnalysis/HiggsToTauTau log -n3 --format="%H | %cd | %cn | %s"
+3768599b82256f8f97911a61d2b488e8570a6932 | Sun Jul 29 23:51:14 2018 +0300 | Ram | Merge branch 'master' of https://github.com/HEP-KBFI/tth-htt
+83c1bdcc92a95bc6afae94ec37c67ffaa30b3985 | Sun Jul 29 23:51:06 2018 +0300 | Ram | Added boolean handle to switch b/w data and MC driven fake background estimation
+bba560e58e2999b836eeac0760dc2abfd2842ef9 | Fri Jul 27 14:23:35 2018 +0300 | Karl Ehatäht | Option to filter MC samples by their DBS name
+................................................................................................................................................................
+Executing: git -C /home/mmaurya/CMSSW_9_4_0_pre1/src/tthAnalysis/HiggsToTauTau status --porcelain=v1 --branch
+## master...origin/master
+................................................................................................................................................................
+Executing: git -C /home/mmaurya/CMSSW_9_4_0_pre1/src/tthAnalysis/HiggsToTauTau diff HEAD --no-ext-diff --unified=0 --exit-code -a --no-prefix --word-diff=plain --color=never
+
+================================================================================================================================================================
+Inspecting dependency: /home/mmaurya/CMSSW_9_4_0_pre1/src/tthAnalysis/TauTriggerSFs2017
+................................................................................................................................................................
+Executing: git -C /home/mmaurya/CMSSW_9_4_0_pre1/src/tthAnalysis/TauTriggerSFs2017 log -n1 --format="%D"
+HEAD -> tauTriggers2017_MCv2_PreReMiniaod, origin/tauTriggers2017_MCv2_PreReMiniaod
+................................................................................................................................................................
+Executing: git -C /home/mmaurya/CMSSW_9_4_0_pre1/src/tthAnalysis/TauTriggerSFs2017 log -n3 --format="%H | %cd | %cn | %s"
+7001a2937ec98aea5da7b17fe18f74ef532cb724 | Fri Jun 15 16:43:11 2018 +0200 | GitHub | Merge pull request #3 from ktht/sysPR
+cfb2b2afd511d361ddae8dd0f0943649f8aa9238 | Fri Jun 15 16:34:52 2018 +0300 | Karl Ehatäht | Optionally vary nominal trigger eff-s by their stat unc-s
+f336f0faf23442becf469e4fde1f7588391d3a8b | Tue May 22 11:02:07 2018 +0200 | Tyler Ruggles | Fixed typo in readme - name of di-tau triggers
+................................................................................................................................................................
+Executing: git -C /home/mmaurya/CMSSW_9_4_0_pre1/src/tthAnalysis/TauTriggerSFs2017 status --porcelain=v1 --branch
+## tauTriggers2017_MCv2_PreReMiniaod...origin/tauTriggers2017_MCv2_PreReMiniaod
+?? python/__init__.py
+?? python/__init__.pyc
+?? python/getTauTriggerSFs.pyc
+?? python/helpers.pyc
+?? python/makeEtaPhiFiles.pyc
+................................................................................................................................................................
+Executing: git -C /home/mmaurya/CMSSW_9_4_0_pre1/src/tthAnalysis/TauTriggerSFs2017 diff HEAD --no-ext-diff --unified=0 --exit-code -a --no-prefix --word-diff=plain --color=never
+
+================================================================================================================================================================
+Inspecting dependency: /home/mmaurya/CMSSW_9_4_0_pre1/src/TauAnalysis/ClassicSVfit
+................................................................................................................................................................
+Executing: git -C /home/mmaurya/CMSSW_9_4_0_pre1/src/TauAnalysis/ClassicSVfit log -n1 --format="%D"
+HEAD -> master, origin/master, origin/HEAD
+................................................................................................................................................................
+Executing: git -C /home/mmaurya/CMSSW_9_4_0_pre1/src/TauAnalysis/ClassicSVfit log -n3 --format="%H | %cd | %cn | %s"
+f751642f22f4196d75c382e2b2213096ce28aa6e | Wed Jul 25 16:39:17 2018 +0300 | Christian Veelken | added functionality to get maxium likelihood value found during Markov Chain integration
+221aea57507ffe234541a9a7ee066a27c4ad3d16 | Wed Apr 18 14:00:08 2018 +0300 | Christian Veelken | improved formatting
+79453702309e18b9b3812ef9eb542dbfd56a1974 | Wed Apr 18 13:58:53 2018 +0300 | Christian Veelken | improved formatting
+................................................................................................................................................................
+Executing: git -C /home/mmaurya/CMSSW_9_4_0_pre1/src/TauAnalysis/ClassicSVfit status --porcelain=v1 --branch
+## master...origin/master
+................................................................................................................................................................
+Executing: git -C /home/mmaurya/CMSSW_9_4_0_pre1/src/TauAnalysis/ClassicSVfit diff HEAD --no-ext-diff --unified=0 --exit-code -a --no-prefix --word-diff=plain --color=never
+
+================================================================================================================================================================
+Inspecting dependency: /home/mmaurya/CMSSW_9_4_0_pre1/src/TauAnalysis/SVfitTF
+................................................................................................................................................................
+Executing: git -C /home/mmaurya/CMSSW_9_4_0_pre1/src/TauAnalysis/SVfitTF log -n1 --format="%D"
+HEAD -> master, origin/master, origin/HEAD
+................................................................................................................................................................
+Executing: git -C /home/mmaurya/CMSSW_9_4_0_pre1/src/TauAnalysis/SVfitTF log -n3 --format="%H | %cd | %cn | %s"
+bed6a16955d882e8a875df1f892f71a36d382412 | Tue May 2 21:43:39 2017 +0300 | GitHub | Merge pull request #2 from CMSAachen3B/master
+472ca941cbd518f879bd7e48634e4fbe6fc22065 | Mon May 1 22:05:40 2017 +0200 | Thomas Mueller | BuildFile.xml: small improvements
+29c1b8dd6842951be86adde0e9f3ef35cc3c302c | Mon Apr 24 16:21:37 2017 +0200 | GitHub | Merge pull request #1 from CMSAachen3B/master
+................................................................................................................................................................
+Executing: git -C /home/mmaurya/CMSSW_9_4_0_pre1/src/TauAnalysis/SVfitTF status --porcelain=v1 --branch
+## master...origin/master
+................................................................................................................................................................
+Executing: git -C /home/mmaurya/CMSSW_9_4_0_pre1/src/TauAnalysis/SVfitTF diff HEAD --no-ext-diff --unified=0 --exit-code -a --no-prefix --word-diff=plain --color=never
+
+================================================================================================================================================================
+Inspecting dependency: /home/mmaurya/CMSSW_9_4_0_pre1/src/ttH_Htautau_MEM_Analysis
+................................................................................................................................................................
+Executing: git -C /home/mmaurya/CMSSW_9_4_0_pre1/src/ttH_Htautau_MEM_Analysis log -n1 --format="%D"
+HEAD -> master, origin/master, origin/HEAD
+................................................................................................................................................................
+Executing: git -C /home/mmaurya/CMSSW_9_4_0_pre1/src/ttH_Htautau_MEM_Analysis log -n3 --format="%H | %cd | %cn | %s"
+4bef0a952b5bb4820616dcbc5894957a4269625b | Thu Jan 5 15:24:43 2017 +0100 | thomas strebler | Add warnings + default values if integration parameters missing in config file
+c574f9b38312d7706b05f7897208242427aeea71 | Thu Jan 5 14:03:27 2017 +0100 | thomas strebler | Fixed typo in nbrOfPoints_ttZ_Zll_miss
+4f2b4a9cb5bdc44e68861f7237ab1e896ee457bc | Sat Dec 17 15:17:02 2016 +0100 | GitHub | Update README.md
+................................................................................................................................................................
+Executing: git -C /home/mmaurya/CMSSW_9_4_0_pre1/src/ttH_Htautau_MEM_Analysis status --porcelain=v1 --branch
+## master...origin/master
+ M MEM/interface/PyConfig.h
+ M MEMAlgo/interface/NodeScheduler.h
+ M MEMAlgo/interface/PyConfig.h
+ M MEMAlgo/src/MGIntegration.cpp
+................................................................................................................................................................
+Executing: git -C /home/mmaurya/CMSSW_9_4_0_pre1/src/ttH_Htautau_MEM_Analysis diff HEAD --no-ext-diff --unified=0 --exit-code -a --no-prefix --word-diff=plain --color=never
+diff --git MEM/interface/PyConfig.h MEM/interface/PyConfig.h
+index be93f80..585b785 100644
+--- MEM/interface/PyConfig.h
++++ MEM/interface/PyConfig.h
+@@ -11,0 +12 @@
+{+#include <vector> // std::vector<>+}
+diff --git MEMAlgo/interface/NodeScheduler.h MEMAlgo/interface/NodeScheduler.h
+index d0388ad..c506216 100644
+--- MEMAlgo/interface/NodeScheduler.h
++++ MEMAlgo/interface/NodeScheduler.h
+@@ -66 +66 @@ class NodeScheduler {
+  {+virtual+} ~NodeScheduler() {};
+diff --git MEMAlgo/interface/PyConfig.h MEMAlgo/interface/PyConfig.h
+index be93f80..4061d05 100644
+--- MEMAlgo/interface/PyConfig.h
++++ MEMAlgo/interface/PyConfig.h
+@@ -11,0 +12 @@
+{+#include <vector>+}
+diff --git MEMAlgo/src/MGIntegration.cpp MEMAlgo/src/MGIntegration.cpp
+index 2cbaf01..871c530 100644
+--- MEMAlgo/src/MGIntegration.cpp
++++ MEMAlgo/src/MGIntegration.cpp
+@@ -2063 +2063 @@ double MGIntegration::evalttH(const double* x ) {
+    [-if(Eb_lep>0){-]{+if(Eb_lep>0 && pT_bl>0){+}
+================================================================================================================================================================
+Inspecting dependency: /home/mmaurya/CMSSW_9_4_0_pre1/src/tthAnalysis/tthMEM
+................................................................................................................................................................
+Executing: git -C /home/mmaurya/CMSSW_9_4_0_pre1/src/tthAnalysis/tthMEM log -n1 --format="%D"
+HEAD -> master, origin/master, origin/HEAD
+................................................................................................................................................................
+Executing: git -C /home/mmaurya/CMSSW_9_4_0_pre1/src/tthAnalysis/tthMEM log -n3 --format="%H | %cd | %cn | %s"
+2330306ada2e7988cad5b56d3cc026c1fd14d334 | Thu Mar 22 13:22:51 2018 +0200 | Karl Ehatäht | Decrease the memory required by a SLURM job from 2GB to 1800M
+6bbae8acc49bd3e5f2191b7da915f6293811b0e6 | Thu Oct 12 19:36:59 2017 +0300 | Karl Ehatäht | Fix compilation issues w/ CMSSW 9_4_x
+906561c524b136a43121fe2e4dcb42f386cd5a91 | Fri Mar 3 22:13:26 2017 +0200 | Karl Ehatäht | Fix denominator in the formula of quark acceptance
+................................................................................................................................................................
+Executing: git -C /home/mmaurya/CMSSW_9_4_0_pre1/src/tthAnalysis/tthMEM status --porcelain=v1 --branch
+## master...origin/master
+................................................................................................................................................................
+Executing: git -C /home/mmaurya/CMSSW_9_4_0_pre1/src/tthAnalysis/tthMEM diff HEAD --no-ext-diff --unified=0 --exit-code -a --no-prefix --word-diff=plain --color=never
+
