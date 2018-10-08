@@ -88,7 +88,7 @@ model.add(Dense(300,activation='relu'))
 
 model.add(Dense(300,activation='relu'))
 
-model.add(Dense(2,activation='sigmoid'))
+model.add(Dense(2,activation='softmax'))
 
 model.summary()
 
