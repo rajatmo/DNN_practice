@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import glob
+from sys import platform
 
 #importing KERAS
 import keras
@@ -19,7 +20,14 @@ from matplotlib import pyplot as plt
 
 #=========================data import and preprocessing
 def load_data(dnnType,varlist):
-    pathwithwildcard = '../csv/2017/forBDTtraining/*/*.csv'
+
+    if platform == "linux" or platform == "linux2":
+        pathwithwildcard = '../csv/2017/forBDTtraining/*/*.csv'
+    elif platform == "darwin":
+        pathwithwildcard = '../csv/2017/forBDTtraining/*/*.csv'
+    elif platform == "win32":
+        pathwithwildcard = '..\\csv\\2017\\forBDTtraining\\*\\*.csv'
+    
     paths = glob.glob(pathwithwildcard)
     df1_signal_dict = {}
     df1_TT_dict = {}
@@ -50,7 +58,7 @@ def load_data(dnnType,varlist):
     df1_TT = pd.concat(tmp_TT)
     df1_TTV = pd.concat(tmp_TTV)
     
-    print df1_signal.shape, df1_TT.shape, df1_TTV.shape
+    print (df1_signal.shape, df1_TT.shape, df1_TTV.shape)
     
     df1_signal = df1_signal[varlist]
     df1_signal_target = [0]*df1_signal.shape[0]
@@ -81,9 +89,9 @@ def train_pyKeras(df1, target, descrip, num_epochs, sizeofepoch):
     df1_train_target_cat = to_categorical(df1_train_target)
     df1_test_target_cat = to_categorical(df1_test_target)
 
-    print '(#events,#vars)[train, test]=', df1_train_target_cat.shape, df1_train.shape, df1_test.shape, df1_test_target_cat.shape
+    print ('(#events,#vars)[train, test]=', df1_train_target_cat.shape, df1_train.shape, df1_test.shape, df1_test_target_cat.shape)
 
-    print df1_train.columns.values
+    print (df1_train.columns.values)
 
     #===============================defining keras model
     model = Sequential()
@@ -176,8 +184,8 @@ varlist=[
     'nMuon'
 ]
 
-dnnType = 'TTV'
-descrip = [100,100,10,10,10,2]
+dnnType = 'TT'
+descrip = [100,10,2]
 num_epochs = 25
 sizeofepoch = 100
 filename = dnnType+'pyKeras_batch_size'+str(sizeofepoch)+'_epochs'+str(num_epochs)+'__'+str(len(varlist))+'vars'+'__depth'+str(len(descrip))+'.pdf'
